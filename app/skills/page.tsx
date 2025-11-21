@@ -12,16 +12,7 @@ import {
   Typography,
 } from '@mui/material';
 import Grid from '@mui/system/Grid';
-import {
-  Code,
-  Storage,
-  Cloud,
-  Build,
-  Speed,
-  Security,
-  BugReport,
-  Group,
-} from '@mui/icons-material';
+import { Code, Storage, Cloud, Speed, Security, BugReport, Group } from '@mui/icons-material';
 
 interface SkillCategory {
   title: string;
@@ -41,15 +32,15 @@ export default function SkillsPage() {
         { name: 'Material UI', level: 85 },
         { name: 'React Query', level: 85 },
         { name: 'Storybook', level: 80 },
+        { name: 'Atomic Design', level: 90 },
       ],
     },
     {
       title: 'Backend & Database',
       icon: <Storage sx={{ fontSize: 40 }} />,
       skills: [
-        { name: 'Node.js', level: 85 },
+        { name: 'Nextjs server actions', level: 85 },
         { name: 'PostgreSQL', level: 85 },
-        { name: 'RESTful APIs', level: 90 },
         { name: 'Database Design', level: 85 },
         { name: 'SQL', level: 85 },
         { name: 'Migration Management', level: 80 },
@@ -60,7 +51,6 @@ export default function SkillsPage() {
       icon: <Cloud sx={{ fontSize: 40 }} />,
       skills: [
         { name: 'Vercel', level: 90 },
-        { name: 'CI/CD Pipelines', level: 85 },
         { name: 'Git/GitHub', level: 95 },
         { name: 'Environment Management', level: 85 },
         { name: 'Deployment Automation', level: 85 },
@@ -74,8 +64,6 @@ export default function SkillsPage() {
         { name: 'Vitest', level: 90 },
         { name: 'Test-Driven Development', level: 95 },
         { name: 'Unit Testing', level: 95 },
-        { name: 'Integration Testing', level: 85 },
-        { name: 'Test Coverage', level: 90 },
         { name: 'Mocking & Stubbing', level: 85 },
       ],
     },

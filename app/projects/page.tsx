@@ -168,7 +168,7 @@ export default function ProjectsPage() {
                     Frontend Stack
                   </Typography>
                   <List dense>
-                    <ListItem>React 18 with Next.js 14</ListItem>
+                    <ListItem>React with Next.js</ListItem>
                     <ListItem>TypeScript for type safety</ListItem>
                     <ListItem>Material UI components</ListItem>
                     <ListItem>React Query for data fetching</ListItem>
@@ -202,7 +202,6 @@ export default function ProjectsPage() {
                     Infrastructure & DevOps
                   </Typography>
                   <List dense>
-                    <ListItem>Vercel deployment platform</ListItem>
                     <ListItem>Automated CI/CD pipelines</ListItem>
                     <ListItem>Dev and prod environments</ListItem>
                     <ListItem>Turborepo monorepo structure</ListItem>
@@ -332,12 +331,6 @@ export default function ProjectsPage() {
                   </ListItemIcon>
                   <ListItemText primary='Worker-specific job views' />
                 </ListItem>
-                <ListItem>
-                  <ListItemIcon>
-                    <CheckCircle color='success' />
-                  </ListItemIcon>
-                  <ListItemText primary='Tutorial system for onboarding' />
-                </ListItem>
               </List>
             </Grid>
             <Grid size={{ xs: 12, md: 6 }}>
@@ -362,12 +355,6 @@ export default function ProjectsPage() {
                     <CheckCircle color='success' />
                   </ListItemIcon>
                   <ListItemText primary='Form validation and data integrity' />
-                </ListItem>
-                <ListItem>
-                  <ListItemIcon>
-                    <CheckCircle color='success' />
-                  </ListItemIcon>
-                  <ListItemText primary='Deploy summary tracking' />
                 </ListItem>
               </List>
             </Grid>
