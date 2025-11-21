@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Card, CardContent, Chip, Container, Paper, Rating, Typography } from '@mui/material';
+import { Box, Card, CardContent, Chip, Container, Paper, Typography } from '@mui/material';
 import Grid from '@mui/system/Grid';
 import { Code, Storage, Cloud, Speed, Security, BugReport, Group } from '@mui/icons-material';
 
@@ -77,15 +77,6 @@ export default function SkillsPage() {
     { name: 'Webhook Integration', description: 'Event-driven architecture' },
   ];
 
-  const softSkills = [
-    { name: 'Client Communication', rating: 5 },
-    { name: 'Requirements Analysis', rating: 5 },
-    { name: 'Problem Solving', rating: 5 },
-    { name: 'Project Ownership', rating: 5 },
-    { name: 'Agile Methodology', rating: 4 },
-    { name: 'Technical Documentation', rating: 4 },
-  ];
-
   return (
     <Container maxWidth='lg' sx={{ py: 8 }}>
       <Typography variant='h2' gutterBottom sx={{ mb: 6 }}>
@@ -152,25 +143,6 @@ export default function SkillsPage() {
           </Grid>
         ))}
       </Grid>
-
-      {/* Soft Skills */}
-      <Paper
-        elevation={2}
-        sx={{ p: 4, background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)' }}>
-        <Typography variant='h4' gutterBottom sx={{ mb: 3 }}>
-          Professional Skills
-        </Typography>
-        <Grid container spacing={3}>
-          {softSkills.map((skill) => (
-            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={skill.name}>
-              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <Typography variant='body1'>{skill.name}</Typography>
-                <Rating value={skill.rating} readOnly size='small' />
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
-      </Paper>
 
       {/* Key Strengths */}
       <Box sx={{ mt: 6 }}>
