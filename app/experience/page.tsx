@@ -74,8 +74,8 @@ export default function ExperiencePage() {
   ];
 
   const metrics = [
-    { label: 'Lines of Code Written', value: '50,000+', color: 'primary' },
-    { label: 'Test Cases', value: '200+', color: 'success' },
+    { label: 'Lines of Code Written', value: '89,000+', color: 'primary' },
+    { label: 'Test Cases', value: '1300+', color: 'success' },
     { label: 'Features Delivered', value: '40+', color: 'info' },
     { label: 'API Integrations', value: '5', color: 'warning' },
     { label: 'Database Tables', value: '15+', color: 'secondary' },
