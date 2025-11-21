@@ -466,6 +466,322 @@ export default function ProjectsPage() {
           </Grid>
         </TabPanel>
       </Paper>
+
+      <Typography variant='h2' gutterBottom sx={{ mb: 4, mt: 6 }}>
+        Customer-Facing Websites
+      </Typography>
+
+      <Typography variant='body1' sx={{ mb: 4 }}>
+        Three production websites built on shared architecture, serving the Greater Boston area with
+        specialized services
+      </Typography>
+
+      <Grid container spacing={3}>
+        <Grid size={{ xs: 12, md: 4 }}>
+          <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+            <Box
+              sx={{
+                p: 3,
+                background: 'linear-gradient(135deg, #2196F3 0%, #1976D2 100%)',
+                color: 'white',
+              }}>
+              <Typography variant='h4' gutterBottom>
+                Greater Boston Snow Removal
+              </Typography>
+              <Typography variant='body2'>
+                Professional snow removal and de-icing services
+              </Typography>
+            </Box>
+            <CardContent sx={{ flexGrow: 1 }}>
+              <Typography variant='subtitle1' gutterBottom color='primary'>
+                Live Site
+              </Typography>
+              <Typography variant='body2' sx={{ mb: 2 }}>
+                <a
+                  href='https://www.greaterbostonsnowremoval.com'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  style={{ color: '#1976D2' }}>
+                  greaterbostonsnowremoval.com
+                </a>
+              </Typography>
+
+              <Typography variant='subtitle1' gutterBottom color='primary' sx={{ mt: 2 }}>
+                Key Features
+              </Typography>
+              <List dense>
+                <ListItem>
+                  <ListItemIcon>
+                    <CheckCircle fontSize='small' color='success' />
+                  </ListItemIcon>
+                  <ListItemText primary='Address range selection for driveways' />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CheckCircle fontSize='small' color='success' />
+                  </ListItemIcon>
+                  <ListItemText primary='Salt/de-icing service options' />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CheckCircle fontSize='small' color='success' />
+                  </ListItemIcon>
+                  <ListItemText primary='Photo upload for accurate quotes' />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CheckCircle fontSize='small' color='success' />
+                  </ListItemIcon>
+                  <ListItemText primary='Google Maps integration' />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CheckCircle fontSize='small' color='success' />
+                  </ListItemIcon>
+                  <ListItemText primary='Educational blog content' />
+                </ListItem>
+              </List>
+
+              <Typography variant='subtitle1' gutterBottom color='primary' sx={{ mt: 2 }}>
+                Tech Stack
+              </Typography>
+              <Box sx={{ display: 'flex', gap: 0.5, flexWrap: 'wrap' }}>
+                <Chip label='Next.js' size='small' />
+                <Chip label='TypeScript' size='small' />
+                <Chip label='PostgreSQL' size='small' />
+                <Chip label='AWS S3' size='small' />
+                <Chip label='Slack API' size='small' />
+              </Box>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        <Grid size={{ xs: 12, md: 4 }}>
+          <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+            <Box
+              sx={{
+                p: 3,
+                background: 'linear-gradient(135deg, #4CAF50 0%, #388E3C 100%)',
+                color: 'white',
+              }}>
+              <Typography variant='h4' gutterBottom>
+                Greater Boston Landscaping
+              </Typography>
+              <Typography variant='body2'>
+                Comprehensive landscaping and yard work services
+              </Typography>
+            </Box>
+            <CardContent sx={{ flexGrow: 1 }}>
+              <Typography variant='subtitle1' gutterBottom color='primary'>
+                Live Site
+              </Typography>
+              <Typography variant='body2' sx={{ mb: 2 }}>
+                <a
+                  href='https://www.greaterbostonlandscapingservices.com'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  style={{ color: '#388E3C' }}>
+                  greaterbostonlandscapingservices.com
+                </a>
+              </Typography>
+
+              <Typography variant='subtitle1' gutterBottom color='primary' sx={{ mt: 2 }}>
+                Key Features
+              </Typography>
+              <List dense>
+                <ListItem>
+                  <ListItemIcon>
+                    <CheckCircle fontSize='small' color='success' />
+                  </ListItemIcon>
+                  <ListItemText primary='Service task selection' />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CheckCircle fontSize='small' color='success' />
+                  </ListItemIcon>
+                  <ListItemText primary='Bag handling options' />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CheckCircle fontSize='small' color='success' />
+                  </ListItemIcon>
+                  <ListItemText primary='Portfolio showcase' />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CheckCircle fontSize='small' color='success' />
+                  </ListItemIcon>
+                  <ListItemText primary='Customer testimonials' />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CheckCircle fontSize='small' color='success' />
+                  </ListItemIcon>
+                  <ListItemText primary='FAQ section' />
+                </ListItem>
+              </List>
+
+              <Typography variant='subtitle1' gutterBottom color='primary' sx={{ mt: 2 }}>
+                Tech Stack
+              </Typography>
+              <Box sx={{ display: 'flex', gap: 0.5, flexWrap: 'wrap' }}>
+                <Chip label='Next.js' size='small' />
+                <Chip label='React Hook Form' size='small' />
+                <Chip label='PostgreSQL' size='small' />
+                <Chip label='Google Maps' size='small' />
+                <Chip label='Sentry' size='small' />
+              </Box>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        <Grid size={{ xs: 12, md: 4 }}>
+          <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+            <Box
+              sx={{
+                p: 3,
+                background: 'linear-gradient(135deg, #FF9800 0%, #F57C00 100%)',
+                color: 'white',
+              }}>
+              <Typography variant='h4' gutterBottom>
+                Greater Boston Handyman
+              </Typography>
+              <Typography variant='body2'>Home maintenance and repair services</Typography>
+            </Box>
+            <CardContent sx={{ flexGrow: 1 }}>
+              <Typography variant='subtitle1' gutterBottom color='primary'>
+                Live Site
+              </Typography>
+              <Typography variant='body2' sx={{ mb: 2 }}>
+                <a
+                  href='https://www.greaterbostonhandymanservices.com'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  style={{ color: '#F57C00' }}>
+                  greaterbostonhandymanservices.com
+                </a>
+              </Typography>
+
+              <Typography variant='subtitle1' gutterBottom color='primary' sx={{ mt: 2 }}>
+                Key Features
+              </Typography>
+              <List dense>
+                <ListItem>
+                  <ListItemIcon>
+                    <CheckCircle fontSize='small' color='success' />
+                  </ListItemIcon>
+                  <ListItemText primary='Multi-service selection' />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CheckCircle fontSize='small' color='success' />
+                  </ListItemIcon>
+                  <ListItemText primary='Apartment unit support' />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CheckCircle fontSize='small' color='success' />
+                  </ListItemIcon>
+                  <ListItemText primary='Past work gallery' />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CheckCircle fontSize='small' color='success' />
+                  </ListItemIcon>
+                  <ListItemText primary='Thumbtack integration' />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CheckCircle fontSize='small' color='success' />
+                  </ListItemIcon>
+                  <ListItemText primary='Customer reviews' />
+                </ListItem>
+              </List>
+
+              <Typography variant='subtitle1' gutterBottom color='primary' sx={{ mt: 2 }}>
+                Tech Stack
+              </Typography>
+              <Box sx={{ display: 'flex', gap: 0.5, flexWrap: 'wrap' }}>
+                <Chip label='Next.js' size='small' />
+                <Chip label='TypeScript' size='small' />
+                <Chip label='PostgreSQL' size='small' />
+                <Chip label='Datadog RUM' size='small' />
+                <Chip label='AWS S3' size='small' />
+              </Box>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
+
+      <Paper elevation={2} sx={{ p: 3, mt: 3 }}>
+        <Typography variant='h6' gutterBottom color='primary'>
+          Shared Architecture Benefits
+        </Typography>
+        <Grid container spacing={2}>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <List dense>
+              <ListItem>
+                <ListItemIcon>
+                  <Code color='primary' />
+                </ListItemIcon>
+                <ListItemText
+                  primary='Monorepo Structure'
+                  secondary='Turborepo with pnpm workspaces for efficient code sharing'
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <Build color='primary' />
+                </ListItemIcon>
+                <ListItemText
+                  primary='Shared Component Library'
+                  secondary='@repo/customer-sites-shared package with common UI components'
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <Storage color='primary' />
+                </ListItemIcon>
+                <ListItemText
+                  primary='Unified Data Layer'
+                  secondary='Common gateways and use case patterns across all sites'
+                />
+              </ListItem>
+            </List>
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <List dense>
+              <ListItem>
+                <ListItemIcon>
+                  <Api color='primary' />
+                </ListItemIcon>
+                <ListItemText
+                  primary='Clean Architecture'
+                  secondary='CreateInquiry base class extended for each service type'
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <Speed color='primary' />
+                </ListItemIcon>
+                <ListItemText
+                  primary='Rapid Deployment'
+                  secondary='Consistent CI/CD pipeline for all customer sites'
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <Security color='primary' />
+                </ListItemIcon>
+                <ListItemText
+                  primary='Comprehensive Testing'
+                  secondary='Shared test utilities and patterns with Vitest'
+                />
+              </ListItem>
+            </List>
+          </Grid>
+        </Grid>
+      </Paper>
     </Container>
   );
 }
