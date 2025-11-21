@@ -1,23 +1,13 @@
 'use client';
 
-import {
-  Box,
-  Card,
-  CardContent,
-  Chip,
-  Container,
-  LinearProgress,
-  Paper,
-  Rating,
-  Typography,
-} from '@mui/material';
+import { Box, Card, CardContent, Chip, Container, Paper, Rating, Typography } from '@mui/material';
 import Grid from '@mui/system/Grid';
 import { Code, Storage, Cloud, Speed, Security, BugReport, Group } from '@mui/icons-material';
 
 interface SkillCategory {
   title: string;
   icon: React.ReactNode;
-  skills: { name: string; level: number }[];
+  skills: string[];
 }
 
 export default function SkillsPage() {
@@ -26,46 +16,41 @@ export default function SkillsPage() {
       title: 'Frontend Development',
       icon: <Code sx={{ fontSize: 40 }} />,
       skills: [
-        { name: 'React 18', level: 95 },
-        { name: 'Next.js 14', level: 90 },
-        { name: 'TypeScript', level: 95 },
-        { name: 'Material UI', level: 85 },
-        { name: 'React Query', level: 85 },
-        { name: 'Storybook', level: 80 },
-        { name: 'Atomic Design', level: 90 },
+        'React 18',
+        'Next.js 14',
+        'TypeScript',
+        'Material UI',
+        'React Query',
+        'Storybook',
+        'Atomic Design',
       ],
     },
     {
       title: 'Backend & Database',
       icon: <Storage sx={{ fontSize: 40 }} />,
       skills: [
-        { name: 'Nextjs server actions', level: 85 },
-        { name: 'PostgreSQL', level: 85 },
-        { name: 'Database Design', level: 85 },
-        { name: 'SQL', level: 85 },
-        { name: 'Migration Management', level: 80 },
+        'Nextjs server actions',
+        'PostgreSQL',
+        'Database Design',
+        'SQL',
+        'Migration Management',
       ],
     },
     {
       title: 'Cloud & DevOps',
       icon: <Cloud sx={{ fontSize: 40 }} />,
       skills: [
-        { name: 'Vercel', level: 90 },
-        { name: 'Git/GitHub', level: 95 },
-        { name: 'Environment Management', level: 85 },
-        { name: 'Deployment Automation', level: 85 },
-        { name: 'Monitoring', level: 75 },
+        'Vercel',
+        'Git/GitHub',
+        'Environment Management',
+        'Deployment Automation',
+        'Monitoring',
       ],
     },
     {
       title: 'Testing & Quality',
       icon: <BugReport sx={{ fontSize: 40 }} />,
-      skills: [
-        { name: 'Vitest', level: 90 },
-        { name: 'Test-Driven Development', level: 95 },
-        { name: 'Unit Testing', level: 95 },
-        { name: 'Mocking & Stubbing', level: 85 },
-      ],
+      skills: ['Vitest', 'Test-Driven Development', 'Unit Testing', 'Mocking & Stubbing'],
     },
   ];
 
@@ -119,21 +104,11 @@ export default function SkillsPage() {
                     {category.title}
                   </Typography>
                 </Box>
-                {category.skills.map((skill) => (
-                  <Box key={skill.name} sx={{ mb: 2 }}>
-                    <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.5 }}>
-                      <Typography variant='body2'>{skill.name}</Typography>
-                      <Typography variant='body2' color='text.secondary'>
-                        {skill.level}%
-                      </Typography>
-                    </Box>
-                    <LinearProgress
-                      variant='determinate'
-                      value={skill.level}
-                      sx={{ height: 6, borderRadius: 3 }}
-                    />
-                  </Box>
-                ))}
+                <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+                  {category.skills.map((skill) => (
+                    <Chip key={skill} label={skill} size='small' variant='outlined' />
+                  ))}
+                </Box>
               </CardContent>
             </Card>
           </Grid>
