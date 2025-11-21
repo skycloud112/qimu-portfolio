@@ -69,7 +69,6 @@ export default function ExperiencePage() {
         'Successfully integrated Google Maps API for address management',
         'Implemented Twilio SMS for customer notifications',
         'Set up Slack integration for team alerts',
-        'Established CI/CD pipelines with automated deployments',
       ],
     },
   ];
@@ -85,33 +84,33 @@ export default function ExperiencePage() {
 
   const timeline = [
     {
-      date: 'Project Start',
-      title: 'Initial Architecture Design',
-      description: 'Designed monorepo structure with clean architecture principles',
+      date: 'Phase 1',
+      title: 'Node.js Script',
+      description: 'Started as a simple Node.js script to automate basic tasks',
       icon: <Code />,
     },
     {
-      date: 'Phase 1',
-      title: 'Core Infrastructure',
-      description: 'Built foundational entities, gateways, and database schema',
+      date: 'Phase 2',
+      title: 'React SPA + Express + MongoDB',
+      description: 'Evolved into a full-stack application with React frontend and Express backend',
       icon: <Business />,
     },
     {
-      date: 'Phase 2',
-      title: 'Admin Application',
-      description: 'Developed complete admin portal for operations management',
+      date: 'Phase 3',
+      title: 'NestJS Migration',
+      description: 'Migrated backend to NestJS for better structure and scalability',
       icon: <Launch />,
     },
     {
-      date: 'Phase 3',
-      title: 'Worker Application',
-      description: 'Created worker app for field operations and job tracking',
+      date: 'Phase 4',
+      title: 'Clean Architecture + Next.js',
+      description: 'Adopted clean architecture patterns and migrated to Next.js server actions',
       icon: <Launch />,
     },
     {
       date: 'Current',
-      title: 'Continuous Enhancement',
-      description: 'Ongoing feature development and optimization based on feedback',
+      title: 'PostgreSQL Migration',
+      description: 'Migrated from MongoDB to PostgreSQL for relational data modeling',
       icon: <TrendingUp />,
     },
   ];
@@ -274,8 +273,8 @@ export default function ExperiencePage() {
         </Typography>
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
           {[
-            'React 18',
-            'Next.js 14',
+            'React',
+            'Next.js',
             'TypeScript',
             'PostgreSQL',
             'Material UI',
@@ -288,7 +287,6 @@ export default function ExperiencePage() {
             'Twilio API',
             'Slack API',
             'Git/GitHub',
-            'CI/CD',
             'Clean Architecture',
             'TDD',
             'SOLID Principles',
