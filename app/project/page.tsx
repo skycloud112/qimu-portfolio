@@ -58,9 +58,32 @@ export default function ProjectsPage() {
 
   return (
     <Container maxWidth='lg' sx={{ py: 8 }}>
-      <Typography variant='h2' gutterBottom sx={{ mb: 4 }}>
-        Featured Project
+      <Typography variant='h2' gutterBottom sx={{ mb: 2 }}>
+        The Roger Project
       </Typography>
+
+      <Typography variant='h5' sx={{ mb: 4, color: 'text.secondary' }}>
+        Complete Digital Ecosystem for Service Business Operations
+      </Typography>
+
+      <Box sx={{ mb: 4, p: 3, bgcolor: 'primary.main', color: 'white', borderRadius: 2 }}>
+        <Typography variant='h6' gutterBottom>
+          Project Overview
+        </Typography>
+        <Typography variant='body1' paragraph>
+          Lead developer for 3 years on this 5-year project, building and maintaining a
+          comprehensive suite of 5 production applications serving Roger's business operations in
+          the Greater Boston area. This unified ecosystem includes internal operations management
+          tools and customer-facing websites for snow removal, landscaping, and handyman services -
+          all built on a shared monorepo architecture.
+        </Typography>
+        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+          <Chip label='3 Years as Lead' sx={{ bgcolor: 'white', color: 'primary.main' }} />
+          <Chip label='5 Production Apps' sx={{ bgcolor: 'white', color: 'primary.main' }} />
+          <Chip label='100% Code Ownership' sx={{ bgcolor: 'white', color: 'primary.main' }} />
+          <Chip label='Monorepo Architecture' sx={{ bgcolor: 'white', color: 'primary.main' }} />
+        </Box>
+      </Box>
 
       <Paper elevation={3} sx={{ mb: 6 }}>
         <Box
@@ -69,18 +92,17 @@ export default function ProjectsPage() {
             background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
             color: 'white',
           }}>
-          <Typography variant='h3' gutterBottom>
-            Roger's Operations Management Platform
+          <Typography variant='h4' gutterBottom>
+            Part 1: Internal Operations Platform
           </Typography>
           <Typography variant='h6' paragraph>
-            Comprehensive business management system for snow removal, landscaping, and handyman
-            services
+            Admin Portal & Worker App for managing jobs, customers, and business operations
           </Typography>
           <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mt: 2 }}>
-            <Chip label='Production' sx={{ bgcolor: 'white' }} />
-            <Chip label='Full Stack' sx={{ bgcolor: 'white' }} />
-            <Chip label='Monorepo' sx={{ bgcolor: 'white' }} />
-            <Chip label='Clean Architecture' sx={{ bgcolor: 'white' }} />
+            <Chip label='Admin Portal' sx={{ bgcolor: 'white' }} />
+            <Chip label='Worker App' sx={{ bgcolor: 'white' }} />
+            <Chip label='Job Management' sx={{ bgcolor: 'white' }} />
+            <Chip label='Customer Database' sx={{ bgcolor: 'white' }} />
           </Box>
         </Box>
 
@@ -100,28 +122,28 @@ export default function ProjectsPage() {
                 Project Scope
               </Typography>
               <Typography paragraph>
-                Built two production web applications from scratch as the sole developer, working
-                directly with the business owner to transform operational requirements into a
-                comprehensive digital platform.
+                As lead developer for 3 years, built and maintained five production web applications
+                for the Roger project, working directly with the business owner to transform
+                operational requirements into a comprehensive digital ecosystem.
               </Typography>
               <List>
                 <ListItem>
                   <ListItemIcon>
                     <CheckCircle color='primary' />
                   </ListItemIcon>
-                  <ListItemText primary='Admin Portal - Complete operations management system' />
+                  <ListItemText primary='2 Internal Apps: Admin Portal & Worker App' />
                 </ListItem>
                 <ListItem>
                   <ListItemIcon>
                     <CheckCircle color='primary' />
                   </ListItemIcon>
-                  <ListItemText primary='Worker App - Field operations and job tracking interface' />
+                  <ListItemText primary='3 Customer Sites: Snow, Landscaping & Handyman services' />
                 </ListItem>
                 <ListItem>
                   <ListItemIcon>
                     <CheckCircle color='primary' />
                   </ListItemIcon>
-                  <ListItemText primary='100% code ownership and technical decision-making' />
+                  <ListItemText primary='All 5 apps in one monorepo with shared architecture' />
                 </ListItem>
               </List>
             </Grid>
@@ -467,13 +489,13 @@ export default function ProjectsPage() {
         </TabPanel>
       </Paper>
 
-      <Typography variant='h2' gutterBottom sx={{ mb: 4, mt: 6 }}>
-        Customer-Facing Websites
+      <Typography variant='h3' gutterBottom sx={{ mb: 2, mt: 6 }}>
+        Part 2: Customer-Facing Websites
       </Typography>
 
-      <Typography variant='body1' sx={{ mb: 4 }}>
-        Three production websites built on shared architecture, serving the Greater Boston area with
-        specialized services
+      <Typography variant='h6' sx={{ mb: 4, color: 'text.secondary' }}>
+        Three Roger service websites built on the same monorepo, sharing architecture and components
+        with the operations platform
       </Typography>
 
       <Grid container spacing={3}>
@@ -715,7 +737,7 @@ export default function ProjectsPage() {
 
       <Paper elevation={2} sx={{ p: 3, mt: 3 }}>
         <Typography variant='h6' gutterBottom color='primary'>
-          Shared Architecture Benefits
+          Unified Roger Project Architecture
         </Typography>
         <Grid container spacing={2}>
           <Grid size={{ xs: 12, md: 6 }}>
@@ -766,7 +788,7 @@ export default function ProjectsPage() {
                 </ListItemIcon>
                 <ListItemText
                   primary='Rapid Deployment'
-                  secondary='Consistent CI/CD pipeline for all customer sites'
+                  secondary='Vercel deployment for all customer sites'
                 />
               </ListItem>
               <ListItem>
@@ -782,6 +804,24 @@ export default function ProjectsPage() {
           </Grid>
         </Grid>
       </Paper>
+
+      <Box sx={{ mt: 6, p: 4, bgcolor: 'grey.100', borderRadius: 2 }}>
+        <Typography variant='h5' gutterBottom color='primary' textAlign='center'>
+          The Roger Project - One Unified Solution
+        </Typography>
+        <Typography variant='body1' textAlign='center' sx={{ mt: 2 }}>
+          All 5 applications (2 internal tools + 3 customer websites) are part of a single, cohesive
+          Roger project. As lead developer for 3 years on this 5-year project, established the
+          monorepo architecture that enables code reuse, consistent patterns, and efficient
+          maintenance across the entire business ecosystem.
+        </Typography>
+        <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', mt: 3, flexWrap: 'wrap' }}>
+          <Chip label='3 Years as Lead' color='primary' />
+          <Chip label='5 Production Apps' color='primary' />
+          <Chip label='1 Monorepo' color='primary' />
+          <Chip label='5-Year Project' color='primary' />
+        </Box>
+      </Box>
     </Container>
   );
 }

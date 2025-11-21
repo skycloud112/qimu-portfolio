@@ -34,8 +34,8 @@ export default function HomePage() {
             color='secondary'
             startIcon={<Work />}
             component={Link}
-            href='/projects'>
-            View Projects
+            href='/project'>
+            View Highlighted Project
           </Button>
         </Box>
       </Paper>
