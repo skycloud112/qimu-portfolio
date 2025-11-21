@@ -37,12 +37,6 @@ export default function HomePage() {
             href='/projects'>
             View Projects
           </Button>
-          <Button
-            variant='outlined'
-            sx={{ color: 'white', borderColor: 'white' }}
-            startIcon={<GitHub />}>
-            GitHub
-          </Button>
         </Box>
       </Paper>
 
