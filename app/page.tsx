@@ -18,6 +18,9 @@ export default function HomePage() {
 
   return (
     <Container maxWidth='lg' sx={{ py: 8 }}>
+      <Typography variant='overline' sx={{ color: 'primary.main', fontWeight: 600 }}>
+        Featured Project
+      </Typography>
       <Typography variant='h2' gutterBottom sx={{ mb: 2 }}>
         The Roger Project
       </Typography>
