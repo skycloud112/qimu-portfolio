@@ -1,6 +1,7 @@
 'use client';
 
-import { AppBar, Container, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Container, IconButton, Toolbar, Typography } from '@mui/material';
+import { LinkedIn, Article } from '@mui/icons-material';
 
 export default function Navigation() {
   return (
@@ -15,6 +16,24 @@ export default function Navigation() {
             }}>
             Qi Mu - Full Stack Engineer
           </Typography>
+          <Box>
+            <IconButton
+              color='inherit'
+              href='https://www.linkedin.com/in/qimu/'
+              target='_blank'
+              rel='noopener noreferrer'
+              aria-label='LinkedIn'>
+              <LinkedIn />
+            </IconButton>
+            <IconButton
+              color='inherit'
+              href='https://qimu.medium.com/'
+              target='_blank'
+              rel='noopener noreferrer'
+              aria-label='Medium'>
+              <Article />
+            </IconButton>
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>
