@@ -53,18 +53,18 @@ export function OverviewTab() {
         <Grid container spacing={2}>
           {accomplishments.map((section) => (
             <Grid size={{ xs: 12, md: 6 }} key={section.category}>
-              <Card>
+              <Card sx={{ height: '100%' }}>
                 <CardContent>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
                     <EmojiEvents color='primary' sx={{ mr: 1 }} />
                     <Typography variant='h6' color='primary'>
                       {section.category}
                     </Typography>
                   </Box>
-                  <List dense>
+                  <List dense disablePadding>
                     {section.items.map((item, index) => (
-                      <ListItem key={index}>
-                        <ListItemIcon>
+                      <ListItem key={index} disableGutters sx={{ py: 0.5 }}>
+                        <ListItemIcon sx={{ minWidth: 32 }}>
                           <CheckCircle color='success' fontSize='small' />
                         </ListItemIcon>
                         <ListItemText primary={item} />
