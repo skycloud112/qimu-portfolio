@@ -42,4 +42,5 @@ debug.log*
 report.txt
 
 tmp/
-build-storybook.logtsconfig.tsbuildinfo
+build-storybook.log
+tsconfig.tsbuildinfo
