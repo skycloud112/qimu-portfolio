@@ -1,14 +1,12 @@
 {
   "name": "qimu-portfolio",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "ts": "tsc --pretty --noEmit",
-    "lint": "eslint .",
+    "lint": "eslint . --fix",
     "all": "pnpm ts && pnpm lint"
   },
   "keywords": [],
