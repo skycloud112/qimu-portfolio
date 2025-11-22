@@ -49,6 +49,7 @@ export function TechnicalArchitectureTab() {
                 Infrastructure & DevOps
               </Typography>
               <List dense>
+                <ListItem>Vercel for deployments</ListItem>
                 <ListItem>Dev and prod environments</ListItem>
                 <ListItem>Turborepo monorepo structure</ListItem>
                 <ListItem>Environment-based configuration</ListItem>
