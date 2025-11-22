@@ -1,9 +1,4 @@
-import {
-  Code,
-  Business,
-  Launch,
-  TrendingUp,
-} from '@mui/icons-material';
+import { Code, Business, Launch, TrendingUp } from '@mui/icons-material';
 import { ReactNode } from 'react';
 
 interface TimelineItem {
@@ -79,9 +74,8 @@ export const accomplishments: AccomplishmentSection[] = [
   {
     category: 'Business Impact',
     items: [
-      'Digitized manual business operations into automated workflows',
-      'Enabled efficient management of seasonal workloads through job templating',
-      'Improved customer communication with integrated SMS and Slack notifications',
+      'Automated end-to-end flow from customer inquiry to job creation to worker app',
+      'Batch create jobs based on templates for efficient seasonal workload management',
       'Streamlined worker operations with dedicated mobile-responsive interface',
     ],
   },
@@ -89,7 +83,7 @@ export const accomplishments: AccomplishmentSection[] = [
     category: 'Integration & Automation',
     items: [
       'Successfully integrated Google Maps API for address management',
-      'Implemented Twilio SMS for customer notifications',
+      'Implemented Twilio SMS for Mass texting and two-way communication',
       'Set up Slack integration for team alerts',
     ],
   },
