@@ -63,13 +63,11 @@ export function TechnicalArchitectureTab() {
         <Typography variant='h6' gutterBottom color='primary'>
           Architecture Principles
         </Typography>
-        <Grid container spacing={2}>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
           {architecturePrinciples.map((principle) => (
-            <Grid size={12} key={principle}>
-              <Chip label={principle} variant='outlined' />
-            </Grid>
+            <Chip label={principle} variant='outlined' key={principle} />
           ))}
-        </Grid>
+        </Box>
       </Box>
     </>
   );
