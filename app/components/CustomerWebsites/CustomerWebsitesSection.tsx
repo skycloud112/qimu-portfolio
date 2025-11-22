@@ -1,53 +1,23 @@
-import { Typography } from '@mui/material';
-import Grid from '@mui/system/Grid';
-import { ServiceCard } from './ServiceCard';
+import { Typography, Paper, Box, Chip, Link } from '@mui/material';
+import { CheckCircle } from '@mui/icons-material';
 import { IntegrationSection } from './IntegrationSection';
 import { ArchitectureSection } from './ArchitectureSection';
 
-const services = [
-  {
-    title: 'Greater Boston Snow Removal',
-    description: 'Professional snow removal and de-icing services',
-    gradient: 'linear-gradient(135deg, #2196F3 0%, #1976D2 100%)',
-    linkUrl: 'https://www.greaterbostonsnowremoval.com',
-    linkColor: '#1976D2',
-    features: [
-      'Address range selection for driveways',
-      'Salt/de-icing service options',
-      'Photo upload for accurate quotes',
-      'Google Maps integration',
-      'Educational blog content',
-    ],
-  },
-  {
-    title: 'Greater Boston Landscaping',
-    description: 'Comprehensive landscaping and yard work services',
-    gradient: 'linear-gradient(135deg, #4CAF50 0%, #388E3C 100%)',
-    linkUrl: 'https://www.greaterbostonlandscapingservices.com',
-    linkColor: '#388E3C',
-    features: [
-      'Service task selection',
-      'Bag handling options',
-      'Portfolio showcase',
-      'Customer testimonials',
-      'FAQ section',
-    ],
-  },
-  {
-    title: 'Greater Boston Handyman',
-    description: 'Home maintenance and repair services',
-    gradient: 'linear-gradient(135deg, #FF9800 0%, #F57C00 100%)',
-    linkUrl: 'https://www.greaterbostonhandymanservices.com',
-    linkColor: '#F57C00',
-    features: [
-      'Multi-service selection',
-      'Apartment unit support',
-      'Past work gallery',
-      'Thumbtack integration',
-      'Customer reviews',
-    ],
-  },
+const sites = [
+  { name: 'Snow Removal', url: 'https://www.greaterbostonsnowremoval.com' },
+  { name: 'Landscaping', url: 'https://www.greaterbostonlandscapingservices.com' },
+  { name: 'Handyman', url: 'https://www.greaterbostonhandymanservices.com' },
 ];
+
+const sharedFeatures = [
+  'Service/quote request forms',
+  'Google Maps address autocomplete',
+  'Photo upload for accurate quotes',
+  'SEO-optimized content pages',
+  'Responsive mobile design',
+];
+
+const techStack = ['Next.js', 'TypeScript', 'PostgreSQL', 'AWS S3'];
 
 export function CustomerWebsitesSection() {
   return (
@@ -61,13 +31,42 @@ export function CustomerWebsitesSection() {
         with the operations platform
       </Typography>
 
-      <Grid container spacing={3}>
-        {services.map((service) => (
-          <Grid size={{ xs: 12, md: 4 }} key={service.title}>
-            <ServiceCard {...service} />
-          </Grid>
-        ))}
-      </Grid>
+      <Paper sx={{ p: 3 }}>
+        <Typography variant='h5' gutterBottom>
+          Three Service Websites
+        </Typography>
+
+        <Box sx={{ mb: 3 }}>
+          {sites.map((site) => (
+            <Box key={site.name} sx={{ mb: 1 }}>
+              <Link href={site.url} target='_blank' rel='noopener'>
+                {site.name}
+              </Link>
+            </Box>
+          ))}
+        </Box>
+
+        <Typography variant='h6' gutterBottom sx={{ mt: 3 }}>
+          Shared Features
+        </Typography>
+        <Box sx={{ mb: 2 }}>
+          {sharedFeatures.map((feature) => (
+            <Box key={feature} sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+              <CheckCircle color='success' sx={{ mr: 1, fontSize: 20 }} />
+              <Typography variant='body2'>{feature}</Typography>
+            </Box>
+          ))}
+        </Box>
+
+        <Typography variant='h6' gutterBottom sx={{ mt: 3 }}>
+          Tech Stack
+        </Typography>
+        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+          {techStack.map((tech) => (
+            <Chip key={tech} label={tech} size='small' />
+          ))}
+        </Box>
+      </Paper>
 
       <IntegrationSection />
       <ArchitectureSection />
