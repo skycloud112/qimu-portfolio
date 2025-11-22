@@ -93,8 +93,8 @@ export const metrics: Metric[] = [
   { label: 'Lines of Code Written', value: '89,000+', color: 'primary' },
   { label: 'Test Cases', value: '1300+', color: 'success' },
   { label: 'Features Delivered', value: '50+', color: 'info' },
-  { label: 'API Integrations', value: '5', color: 'warning' },
-  { label: 'Database Tables', value: '15+', color: 'secondary' },
+  { label: 'API Integrations', value: '3', color: 'warning' },
+  { label: 'Database Tables', value: '15', color: 'secondary' },
   { label: 'Deployment Frequency', value: 'Daily', color: 'primary' },
 ];
 
