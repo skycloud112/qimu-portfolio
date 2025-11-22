@@ -1,10 +1,10 @@
-import { List, ListItem, ListItemIcon, ListItemText, Paper, Typography } from '@mui/material';
+import { Box, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
 import Grid from '@mui/system/Grid';
 import { Code, Build, Storage, Api, Speed, Security } from '@mui/icons-material';
 
 export function ArchitectureSection() {
   return (
-    <Paper elevation={2} sx={{ p: 3, mt: 3 }}>
+    <Box sx={{ p: 3, borderTop: 1, borderColor: 'divider' }}>
       <Typography variant='h6' gutterBottom color='primary'>
         Unified Roger Project Architecture
       </Typography>
@@ -72,6 +72,6 @@ export function ArchitectureSection() {
           </List>
         </Grid>
       </Grid>
-    </Paper>
+    </Box>
   );
 }

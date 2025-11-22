@@ -1,9 +1,9 @@
-import { List, ListItem, ListItemIcon, ListItemText, Paper, Typography } from '@mui/material';
+import { Box, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
 import { CheckCircle } from '@mui/icons-material';
 
 export function IntegrationSection() {
   return (
-    <Paper elevation={2} sx={{ p: 3, mt: 3, mb: 3 }}>
+    <Box sx={{ p: 3, borderTop: 1, borderColor: 'divider' }}>
       <Typography variant='h6' gutterBottom color='primary'>
         Seamless Integration Between Customer Sites and Operations Platform
       </Typography>
@@ -49,6 +49,6 @@ export function IntegrationSection() {
           />
         </ListItem>
       </List>
-    </Paper>
+    </Box>
   );
 }

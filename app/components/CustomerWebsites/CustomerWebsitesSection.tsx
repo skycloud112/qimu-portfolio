@@ -21,17 +21,28 @@ const techStack = ['Next.js', 'TypeScript', 'PostgreSQL', 'AWS S3'];
 
 export function CustomerWebsitesSection() {
   return (
-    <>
-      <Typography variant='h3' gutterBottom sx={{ mb: 2, mt: 6 }}>
-        Part 2: Customer-Facing Websites
-      </Typography>
+    <Paper elevation={3} sx={{ mb: 6 }}>
+      <Box
+        sx={{
+          p: 4,
+          background: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
+          color: 'white',
+        }}>
+        <Typography variant='h4' gutterBottom>
+          Part 2: Customer-Facing Websites
+        </Typography>
+        <Typography variant='h6' sx={{ mb: 2 }}>
+          Three Roger service websites built on the same monorepo, sharing architecture and
+          components with the operations platform
+        </Typography>
+        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mt: 2 }}>
+          <Chip label='Snow Removal' sx={{ bgcolor: 'white' }} />
+          <Chip label='Landscaping' sx={{ bgcolor: 'white' }} />
+          <Chip label='Handyman' sx={{ bgcolor: 'white' }} />
+        </Box>
+      </Box>
 
-      <Typography variant='h6' sx={{ mb: 4, color: 'text.secondary' }}>
-        Three Roger service websites built on the same monorepo, sharing architecture and components
-        with the operations platform
-      </Typography>
-
-      <Paper sx={{ p: 3 }}>
+      <Box sx={{ p: 3 }}>
         <Typography variant='h5' gutterBottom>
           Three Service Websites
         </Typography>
@@ -66,10 +77,10 @@ export function CustomerWebsitesSection() {
             <Chip key={tech} label={tech} size='small' />
           ))}
         </Box>
-      </Paper>
+      </Box>
 
       <IntegrationSection />
       <ArchitectureSection />
-    </>
+    </Paper>
   );
 }

@@ -11,7 +11,7 @@ interface ProjectTabsProps {
 
 export function ProjectTabs({ tabValue, onTabChange }: ProjectTabsProps) {
   return (
-    <Paper elevation={3} sx={{ mb: 6 }}>
+    <Paper elevation={3} sx={{ mb: 6, mt: 6 }}>
       <Box
         sx={{
           p: 4,
