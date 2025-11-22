@@ -1,0 +1,1 @@
+does not start or stop nextjs server automatically
