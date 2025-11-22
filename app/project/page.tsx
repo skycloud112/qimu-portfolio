@@ -572,7 +572,6 @@ export default function ProjectsPage() {
                 <Chip label='TypeScript' size='small' />
                 <Chip label='PostgreSQL' size='small' />
                 <Chip label='AWS S3' size='small' />
-                <Chip label='Slack API' size='small' />
               </Box>
             </CardContent>
           </Card>
@@ -648,10 +647,9 @@ export default function ProjectsPage() {
               </Typography>
               <Box sx={{ display: 'flex', gap: 0.5, flexWrap: 'wrap' }}>
                 <Chip label='Next.js' size='small' />
-                <Chip label='React Hook Form' size='small' />
+                <Chip label='TypeScript' size='small' />
                 <Chip label='PostgreSQL' size='small' />
-                <Chip label='Google Maps' size='small' />
-                <Chip label='Sentry' size='small' />
+                <Chip label='AWS S3' size='small' />
               </Box>
             </CardContent>
           </Card>
@@ -727,13 +725,60 @@ export default function ProjectsPage() {
                 <Chip label='Next.js' size='small' />
                 <Chip label='TypeScript' size='small' />
                 <Chip label='PostgreSQL' size='small' />
-                <Chip label='Datadog RUM' size='small' />
                 <Chip label='AWS S3' size='small' />
               </Box>
             </CardContent>
           </Card>
         </Grid>
       </Grid>
+
+      <Paper elevation={2} sx={{ p: 3, mt: 3, mb: 3 }}>
+        <Typography variant='h6' gutterBottom color='primary'>
+          Seamless Integration Between Customer Sites and Operations Platform
+        </Typography>
+        <Typography variant='body2' paragraph sx={{ mb: 2 }}>
+          Customer inquiries submitted through any of the three service websites automatically flow
+          into the admin portal, creating a unified workflow:
+        </Typography>
+        <List>
+          <ListItem>
+            <ListItemIcon>
+              <CheckCircle color='success' />
+            </ListItemIcon>
+            <ListItemText
+              primary='Customer submits inquiry on any service website (Snow, Landscaping, or Handyman)'
+              secondary='Form data with photos, address details, and service requirements'
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <CheckCircle color='success' />
+            </ListItemIcon>
+            <ListItemText
+              primary='Inquiry instantly appears in Admin Portal'
+              secondary='Admin users can view all customer inquiries from all three websites in one centralized dashboard'
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <CheckCircle color='success' />
+            </ListItemIcon>
+            <ListItemText
+              primary='Admin converts inquiries to jobs with one click'
+              secondary='Creates jobs with all customer information pre-populated from the inquiry'
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <CheckCircle color='success' />
+            </ListItemIcon>
+            <ListItemText
+              primary='Workers see assigned jobs in Worker App'
+              secondary='Jobs created from customer inquiries are immediately visible to assigned workers'
+            />
+          </ListItem>
+        </List>
+      </Paper>
 
       <Paper elevation={2} sx={{ p: 3, mt: 3 }}>
         <Typography variant='h6' gutterBottom color='primary'>
