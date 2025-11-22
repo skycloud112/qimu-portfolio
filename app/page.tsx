@@ -6,13 +6,14 @@ import { ProjectOverview } from './components/ProjectOverview';
 import { ProjectMetrics } from './components/ProjectMetrics';
 import { InternalPlatformSection } from './components/InternalPlatform/InternalPlatformSection';
 import { CustomerWebsitesSection } from './components/CustomerWebsites/CustomerWebsitesSection';
+import { ProjectTabs } from './components/ProjectTabs/ProjectTabs';
 import { Footer } from './components/Footer';
 
 export default function HomePage() {
-  const [tabValue, setTabValue] = useState(0);
+  const [projectTabValue, setProjectTabValue] = useState(0);
 
-  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
-    setTabValue(newValue);
+  const handleProjectTabChange = (_event: React.SyntheticEvent, newValue: number) => {
+    setProjectTabValue(newValue);
   };
 
   return (
@@ -27,8 +28,9 @@ export default function HomePage() {
 
       <ProjectOverview />
       <ProjectMetrics />
-      <InternalPlatformSection tabValue={tabValue} onTabChange={handleChange} />
+      <InternalPlatformSection />
       <CustomerWebsitesSection />
+      <ProjectTabs tabValue={projectTabValue} onTabChange={handleProjectTabChange} />
       <Footer />
     </Container>
   );

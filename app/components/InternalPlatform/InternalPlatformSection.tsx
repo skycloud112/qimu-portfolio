@@ -1,17 +1,16 @@
 import { Box, Chip, Paper, Tab, Tabs, Typography } from '@mui/material';
 import { TabPanel } from '../TabPanel';
 import { OverviewTab } from './OverviewTab';
-import { TechnicalArchitectureTab } from './TechnicalArchitectureTab';
 import { FeaturesTab } from './FeaturesTab';
-import { DevelopmentProcessTab } from './DevelopmentProcessTab';
-import { EvolutionTab } from './EvolutionTab';
+import { useState } from 'react';
 
-interface InternalPlatformSectionProps {
-  tabValue: number;
-  onTabChange: (event: React.SyntheticEvent, newValue: number) => void;
-}
+export function InternalPlatformSection() {
+  const [tabValue, setTabValue] = useState(0);
 
-export function InternalPlatformSection({ tabValue, onTabChange }: InternalPlatformSectionProps) {
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
+    setTabValue(newValue);
+  };
+
   return (
     <Paper elevation={3} sx={{ mb: 6 }}>
       <Box
@@ -35,12 +34,9 @@ export function InternalPlatformSection({ tabValue, onTabChange }: InternalPlatf
       </Box>
 
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={tabValue} onChange={onTabChange} aria-label='project tabs'>
+        <Tabs value={tabValue} onChange={handleChange} aria-label='internal platform tabs'>
           <Tab label='Overview' />
-          <Tab label='Technical Architecture' />
           <Tab label='Features Implemented' />
-          <Tab label='Development Process' />
-          <Tab label='Evolution' />
         </Tabs>
       </Box>
 
@@ -49,19 +45,7 @@ export function InternalPlatformSection({ tabValue, onTabChange }: InternalPlatf
       </TabPanel>
 
       <TabPanel value={tabValue} index={1}>
-        <TechnicalArchitectureTab />
-      </TabPanel>
-
-      <TabPanel value={tabValue} index={2}>
         <FeaturesTab />
-      </TabPanel>
-
-      <TabPanel value={tabValue} index={3}>
-        <DevelopmentProcessTab />
-      </TabPanel>
-
-      <TabPanel value={tabValue} index={4}>
-        <EvolutionTab />
       </TabPanel>
     </Paper>
   );
