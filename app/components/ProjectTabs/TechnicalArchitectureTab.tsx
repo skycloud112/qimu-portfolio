@@ -49,7 +49,6 @@ export function TechnicalArchitectureTab() {
                 Infrastructure & DevOps
               </Typography>
               <List dense>
-                <ListItem>Automated CI/CD pipelines</ListItem>
                 <ListItem>Dev and prod environments</ListItem>
                 <ListItem>Turborepo monorepo structure</ListItem>
                 <ListItem>Environment-based configuration</ListItem>
