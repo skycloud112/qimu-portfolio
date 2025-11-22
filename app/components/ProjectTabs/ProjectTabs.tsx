@@ -1,8 +1,8 @@
 import { Box, Paper, Tab, Tabs, Typography } from '@mui/material';
 import { TabPanel } from '../TabPanel';
-import { TechnicalArchitectureTab } from '../InternalPlatform/TechnicalArchitectureTab';
-import { DevelopmentProcessTab } from '../InternalPlatform/DevelopmentProcessTab';
-import { EvolutionTab } from '../InternalPlatform/EvolutionTab';
+import { TechnicalArchitectureTab } from './TechnicalArchitectureTab';
+import { DevelopmentProcessTab } from './DevelopmentProcessTab';
+import { EvolutionTab } from './EvolutionTab';
 
 interface ProjectTabsProps {
   tabValue: number;
