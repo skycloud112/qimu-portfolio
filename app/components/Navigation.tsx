@@ -1,7 +1,7 @@
 'use client';
 
 import { AppBar, Box, Container, IconButton, Toolbar, Typography } from '@mui/material';
-import { LinkedIn, Article } from '@mui/icons-material';
+import { LinkedIn, Article, GitHub } from '@mui/icons-material';
 
 export default function Navigation() {
   return (
@@ -17,6 +17,14 @@ export default function Navigation() {
             Qi Mu - Full Stack Engineer
           </Typography>
           <Box>
+            <IconButton
+              color='inherit'
+              href='https://github.com/skycloud112'
+              target='_blank'
+              rel='noopener noreferrer'
+              aria-label='GitHub'>
+              <GitHub />
+            </IconButton>
             <IconButton
               color='inherit'
               href='https://www.linkedin.com/in/qimu/'
