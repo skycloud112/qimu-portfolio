@@ -11,7 +11,6 @@ export default function Navigation() {
     { label: 'Home', href: '/' },
     { label: 'Project', href: '/project' },
     { label: 'Skills', href: '/skills' },
-    { label: 'Experience', href: '/experience' },
   ];
 
   return (
