@@ -92,7 +92,7 @@ export const accomplishments: AccomplishmentSection[] = [
 export const metrics: Metric[] = [
   { label: 'Lines of Code Written', value: '89,000+', color: 'primary' },
   { label: 'Test Cases', value: '1300+', color: 'success' },
-  { label: 'Features Delivered', value: '40+', color: 'info' },
+  { label: 'Features Delivered', value: '50+', color: 'info' },
   { label: 'API Integrations', value: '5', color: 'warning' },
   { label: 'Database Tables', value: '15+', color: 'secondary' },
   { label: 'Deployment Frequency', value: 'Daily', color: 'primary' },
@@ -129,4 +129,93 @@ export const technologiesMastered = [
   'SOLID Principles',
   'Storybook',
   'ESLint',
+];
+
+interface FeatureCategory {
+  category: string;
+  items: string[];
+}
+
+export const featureCategories: FeatureCategory[] = [
+  {
+    category: 'Job Management System',
+    items: [
+      'Complete CRUD operations for jobs',
+      'Multiple job types: Snow, Landscaping, Handyman',
+      'Snow job templating for seasonal work',
+      'Batch job generation from templates',
+      'Job ordering and route optimization',
+      'Job calendars with daily counts',
+      'Move jobs between days and bulk rescheduling',
+      'Admin verification of completed jobs',
+      'URL-based state for shareable edit links',
+      'Real-time status tracking',
+      'Visit needed tracking for follow-ups',
+    ],
+  },
+  {
+    category: 'Communication Features',
+    items: [
+      'SMS notifications via Twilio integration',
+      'Two-way SMS conversation history',
+      'SMS search across all conversations',
+      'SMS templates for mass texting',
+      'Quote generation via SMS',
+      'Mass text opt-out tracking',
+      'Slack alerts for team coordination',
+      'Worker photo uploads for job completion',
+    ],
+  },
+  {
+    category: 'Worker Management',
+    items: [
+      'Worker profiles with job type preferences',
+      'Crew management and assignment',
+      'Batch job assignment to workers/crews',
+      'Job assignment workflows',
+      'Worker-specific job views',
+      'Worker activity tracking by last upload',
+      'Multi-language support',
+      'Terms & conditions management',
+    ],
+  },
+  {
+    category: 'Data Management',
+    items: [
+      'Google Maps address autocomplete',
+      'Customer database with history',
+      'Address-to-customer relationships',
+      'Contact activity history tracking',
+      'Form validation and data integrity',
+      'Batch operations (assign, generate, delete)',
+    ],
+  },
+  {
+    category: 'Inquiry Management',
+    items: [
+      'Customer inquiry tracking',
+      'Convert inquiries to addresses/templates',
+      'Auto-fill templates from inquiry data',
+      'Inquiry display on map',
+    ],
+  },
+  {
+    category: 'Location & Mapping',
+    items: [
+      'Templates displayed on interactive map',
+      'Inquiries displayed on map',
+      'Route optimization by template order',
+    ],
+  },
+  {
+    category: 'Worker Mobile App',
+    items: [
+      'Phone-based authentication',
+      'Daily job list view',
+      'Snow addresses list',
+      'Photo upload for job completion',
+      'Salt applied checkbox tracking',
+      'Profile & preferences management',
+    ],
+  },
 ];
