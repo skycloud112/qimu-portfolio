@@ -74,7 +74,10 @@ export const accomplishments: AccomplishmentSection[] = [
   {
     category: 'Business Impact',
     items: [
-      'Automated end-to-end flow from customer inquiry to job creation to worker app',
+      'Platform actively serves 230+ snow removal customers during winter operations',
+      'Manages 100+ landscaping and handyman customers year-round',
+      'Coordinates 100+ workers during snow events through mobile web app',
+      'Automated end-to-end flow from customer inquiry to job creation to worker dispatch',
       'Batch create jobs based on templates for efficient seasonal workload management',
       'Streamlined worker operations with dedicated mobile-responsive interface',
     ],
@@ -90,12 +93,12 @@ export const accomplishments: AccomplishmentSection[] = [
 ];
 
 export const metrics: Metric[] = [
-  { label: 'Lines of Code Written', value: '89,000+', color: 'primary' },
-  { label: 'Test Cases', value: '1300+', color: 'success' },
-  { label: 'Features Delivered', value: '50+', color: 'info' },
-  { label: 'API Integrations', value: '3', color: 'warning' },
-  { label: 'Database Tables', value: '15', color: 'secondary' },
-  { label: 'Deployment Frequency', value: 'Daily', color: 'primary' },
+  { label: 'Snow Customers Served', value: '230+', color: 'primary' },
+  { label: 'Landscaping & Handyman Customers', value: '100+', color: 'success' },
+  { label: 'Active Workers (Snow Events)', value: '100+', color: 'info' },
+  { label: 'Lines of Code Written', value: '89,000+', color: 'warning' },
+  { label: 'Test Cases', value: '1300+', color: 'secondary' },
+  { label: 'Features Delivered', value: '50+', color: 'primary' },
 ];
 
 export const architecturePrinciples = [
