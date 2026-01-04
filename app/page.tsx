@@ -9,6 +9,9 @@ export default function HomePage() {
       <Stack spacing={4}>
         <Stack spacing={1}>
           <Typography variant='h5'>Blogs</Typography>
+          <Link component={NextLink} href='/blog/article-1'>
+            My First Blog Article
+          </Link>
           <Link href='https://qimu.medium.com/' target='_blank' rel='noopener'>
             Medium
           </Link>
