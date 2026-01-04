@@ -1,50 +1,35 @@
-import { Box, Paper, Tab, Tabs, Typography } from '@mui/material';
-import { TabPanel } from '../TabPanel';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Card } from '@/components/ui/card';
 import { TechnicalArchitectureTab } from './TechnicalArchitectureTab';
 import { DevelopmentProcessTab } from './DevelopmentProcessTab';
 import { EvolutionTab } from './EvolutionTab';
 
-interface ProjectTabsProps {
-  tabValue: number;
-  onTabChange: (event: React.SyntheticEvent, newValue: number) => void;
-}
-
-export function ProjectTabs({ tabValue, onTabChange }: ProjectTabsProps) {
+export function ProjectTabs() {
   return (
-    <Paper elevation={3} sx={{ mb: 6, mt: 6 }}>
-      <Box
-        sx={{
-          p: 4,
-          background: 'linear-gradient(135deg, #2c3e50 0%, #3498db 100%)',
-          color: 'white',
-        }}>
-        <Typography variant='h4' gutterBottom>
-          Project-Wide Details
-        </Typography>
-        <Typography variant='h6'>
+    <Card className='mb-12 mt-12 overflow-hidden'>
+      <div className='bg-gradient-to-br from-slate-700 to-blue-500 p-8 text-white'>
+        <h2 className='text-2xl font-bold'>Project-Wide Details</h2>
+        <p className='mt-2 text-lg'>
           Technical architecture, development process, and evolution across all 5 apps
-        </Typography>
-      </Box>
+        </p>
+      </div>
 
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={tabValue} onChange={onTabChange} aria-label='project-wide tabs'>
-          <Tab label='Technical Architecture' />
-          <Tab label='Development Process' />
-          <Tab label='Evolution' />
-        </Tabs>
-      </Box>
-
-      <TabPanel value={tabValue} index={0}>
-        <TechnicalArchitectureTab />
-      </TabPanel>
-
-      <TabPanel value={tabValue} index={1}>
-        <DevelopmentProcessTab />
-      </TabPanel>
-
-      <TabPanel value={tabValue} index={2}>
-        <EvolutionTab />
-      </TabPanel>
-    </Paper>
+      <Tabs defaultValue='architecture' className='w-full'>
+        <TabsList className='w-full justify-start rounded-none border-b bg-transparent'>
+          <TabsTrigger value='architecture'>Technical Architecture</TabsTrigger>
+          <TabsTrigger value='development'>Development Process</TabsTrigger>
+          <TabsTrigger value='evolution'>Evolution</TabsTrigger>
+        </TabsList>
+        <TabsContent value='architecture' className='p-6'>
+          <TechnicalArchitectureTab />
+        </TabsContent>
+        <TabsContent value='development' className='p-6'>
+          <DevelopmentProcessTab />
+        </TabsContent>
+        <TabsContent value='evolution' className='p-6'>
+          <EvolutionTab />
+        </TabsContent>
+      </Tabs>
+    </Card>
   );
 }

@@ -1,4 +1,4 @@
-import { Code, Business, Launch, TrendingUp } from '@mui/icons-material';
+import { Code, Building2, Rocket, TrendingUp } from 'lucide-react';
 import { ReactNode } from 'react';
 
 interface TimelineItem {
@@ -24,31 +24,31 @@ export const timeline: TimelineItem[] = [
     date: 'Phase 1',
     title: 'Node.js Script',
     description: 'Started as a simple Node.js script to automate basic tasks',
-    icon: <Code />,
+    icon: <Code className='h-5 w-5' />,
   },
   {
     date: 'Phase 2',
     title: 'React SPA + Express + MongoDB',
     description: 'Evolved into a full-stack application with React frontend and Express backend',
-    icon: <Business />,
+    icon: <Building2 className='h-5 w-5' />,
   },
   {
     date: 'Phase 3',
     title: 'NestJS Migration',
     description: 'Migrated backend to NestJS for better structure and scalability',
-    icon: <Launch />,
+    icon: <Rocket className='h-5 w-5' />,
   },
   {
     date: 'Phase 4',
     title: 'Clean Architecture + Next.js',
     description: 'Adopted clean architecture patterns and migrated to Next.js server actions',
-    icon: <Launch />,
+    icon: <Rocket className='h-5 w-5' />,
   },
   {
     date: 'Current',
     title: 'PostgreSQL Migration',
     description: 'Migrated from MongoDB to PostgreSQL for relational data modeling',
-    icon: <TrendingUp />,
+    icon: <TrendingUp className='h-5 w-5' />,
   },
 ];
 
@@ -117,7 +117,7 @@ export const technologiesMastered = [
   'Next.js',
   'TypeScript',
   'PostgreSQL',
-  'Material UI',
+  'Tailwind CSS',
   'Vitest',
   'React Query',
   'Turborepo',

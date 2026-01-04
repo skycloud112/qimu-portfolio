@@ -1,9 +1,3 @@
-import { Container, Box } from '@mui/material';
-
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <Container maxWidth='md'>
-      <Box sx={{ py: 4 }}>{children}</Box>
-    </Container>
-  );
+  return <div className='mx-auto max-w-3xl px-4 py-8'>{children}</div>;
 }

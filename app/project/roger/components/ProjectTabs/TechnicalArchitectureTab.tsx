@@ -1,74 +1,62 @@
-import { Box, Card, CardContent, Chip, List, ListItem, Typography } from '@mui/material';
-import Grid from '@mui/system/Grid';
-import { Code, Storage, CloudQueue } from '@mui/icons-material';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Code, Database, Cloud } from 'lucide-react';
 import { architecturePrinciples } from '../data';
 
 export function TechnicalArchitectureTab() {
   return (
     <>
-      <Grid container spacing={3}>
-        <Grid size={{ xs: 12, md: 4 }}>
-          <Card sx={{ height: '100%' }}>
-            <CardContent>
-              <Code color='primary' sx={{ fontSize: 40, mb: 2 }} />
-              <Typography variant='h6' gutterBottom>
-                Frontend Stack
-              </Typography>
-              <List dense>
-                <ListItem>React with Next.js</ListItem>
-                <ListItem>TypeScript for type safety</ListItem>
-                <ListItem>Material UI components</ListItem>
-                <ListItem>React Query for data fetching</ListItem>
-                <ListItem>Storybook for component docs</ListItem>
-              </List>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid size={{ xs: 12, md: 4 }}>
-          <Card sx={{ height: '100%' }}>
-            <CardContent>
-              <Storage color='primary' sx={{ fontSize: 40, mb: 2 }} />
-              <Typography variant='h6' gutterBottom>
-                Backend & Database
-              </Typography>
-              <List dense>
-                <ListItem>PostgreSQL on Neon (cloud-native)</ListItem>
-                <ListItem>Clean architecture patterns</ListItem>
-                <ListItem>Repository pattern for data access</ListItem>
-                <ListItem>In-memory & production implementations</ListItem>
-                <ListItem>Migration scripts management</ListItem>
-              </List>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid size={{ xs: 12, md: 4 }}>
-          <Card sx={{ height: '100%' }}>
-            <CardContent>
-              <CloudQueue color='primary' sx={{ fontSize: 40, mb: 2 }} />
-              <Typography variant='h6' gutterBottom>
-                Infrastructure & DevOps
-              </Typography>
-              <List dense>
-                <ListItem>Vercel for deployments</ListItem>
-                <ListItem>Dev and prod environments</ListItem>
-                <ListItem>Turborepo monorepo structure</ListItem>
-                <ListItem>Environment-based configuration</ListItem>
-              </List>
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid>
+      <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
+        <Card className='h-full'>
+          <CardContent className='pt-6'>
+            <Code className='mb-4 h-10 w-10 text-primary' />
+            <h3 className='mb-2 text-lg font-semibold'>Frontend Stack</h3>
+            <ul className='space-y-1 text-sm'>
+              <li>React with Next.js</li>
+              <li>TypeScript for type safety</li>
+              <li>Material UI components</li>
+              <li>React Query for data fetching</li>
+              <li>Storybook for component docs</li>
+            </ul>
+          </CardContent>
+        </Card>
+        <Card className='h-full'>
+          <CardContent className='pt-6'>
+            <Database className='mb-4 h-10 w-10 text-primary' />
+            <h3 className='mb-2 text-lg font-semibold'>Backend & Database</h3>
+            <ul className='space-y-1 text-sm'>
+              <li>PostgreSQL on Neon (cloud-native)</li>
+              <li>Clean architecture patterns</li>
+              <li>Repository pattern for data access</li>
+              <li>In-memory & production implementations</li>
+              <li>Migration scripts management</li>
+            </ul>
+          </CardContent>
+        </Card>
+        <Card className='h-full'>
+          <CardContent className='pt-6'>
+            <Cloud className='mb-4 h-10 w-10 text-primary' />
+            <h3 className='mb-2 text-lg font-semibold'>Infrastructure & DevOps</h3>
+            <ul className='space-y-1 text-sm'>
+              <li>Vercel for deployments</li>
+              <li>Dev and prod environments</li>
+              <li>Turborepo monorepo structure</li>
+              <li>Environment-based configuration</li>
+            </ul>
+          </CardContent>
+        </Card>
+      </div>
 
-      <Box sx={{ mt: 4 }}>
-        <Typography variant='h6' gutterBottom color='primary'>
-          Architecture Principles
-        </Typography>
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+      <div className='mt-8'>
+        <h3 className='mb-4 text-lg font-semibold text-primary'>Architecture Principles</h3>
+        <div className='flex flex-wrap gap-2'>
           {architecturePrinciples.map((principle) => (
-            <Chip label={principle} variant='outlined' key={principle} />
+            <Badge key={principle} variant='outline'>
+              {principle}
+            </Badge>
           ))}
-        </Box>
-      </Box>
+        </div>
+      </div>
     </>
   );
 }

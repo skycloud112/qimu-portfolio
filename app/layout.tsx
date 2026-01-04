@@ -1,6 +1,3 @@
-'use client';
-
-import ThemeRegistry from './ThemeRegistry';
 import Navigation from '../components/Navigation';
 import './globals.css';
 
@@ -10,11 +7,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <title>Qi Mu</title>
       </head>
-      <body>
-        <ThemeRegistry>
-          <Navigation />
-          {children}
-        </ThemeRegistry>
+      <body className='min-h-screen'>
+        <Navigation />
+        {children}
       </body>
     </html>
   );

@@ -1,5 +1,6 @@
-import { Typography, Paper, Box, Chip, Link } from '@mui/material';
-import { CheckCircle } from '@mui/icons-material';
+import { Card } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { CheckCircle } from 'lucide-react';
 import { IntegrationSection } from './IntegrationSection';
 import { ArchitectureSection } from './ArchitectureSection';
 
@@ -21,66 +22,65 @@ const techStack = ['Next.js', 'TypeScript', 'PostgreSQL', 'AWS S3'];
 
 export function CustomerWebsitesSection() {
   return (
-    <Paper elevation={3} sx={{ mb: 6 }}>
-      <Box
-        sx={{
-          p: 4,
-          background: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
-          color: 'white',
-        }}>
-        <Typography variant='h4' gutterBottom>
-          Part 2: Customer-Facing Websites
-        </Typography>
-        <Typography variant='h6' sx={{ mb: 2 }}>
+    <Card className='mb-12 overflow-hidden'>
+      <div className='bg-gradient-to-br from-emerald-500 to-green-400 p-8 text-white'>
+        <h2 className='text-2xl font-bold'>Part 2: Customer-Facing Websites</h2>
+        <p className='mb-4 mt-2 text-lg'>
           Three Roger service websites built on the same monorepo, sharing architecture and
           components with the operations platform
-        </Typography>
-        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mt: 2 }}>
-          <Chip label='Snow Removal' sx={{ bgcolor: 'white' }} />
-          <Chip label='Landscaping' sx={{ bgcolor: 'white' }} />
-          <Chip label='Handyman' sx={{ bgcolor: 'white' }} />
-        </Box>
-      </Box>
+        </p>
+        <div className='flex flex-wrap gap-2'>
+          <Badge variant='secondary' className='bg-white text-slate-900'>
+            Snow Removal
+          </Badge>
+          <Badge variant='secondary' className='bg-white text-slate-900'>
+            Landscaping
+          </Badge>
+          <Badge variant='secondary' className='bg-white text-slate-900'>
+            Handyman
+          </Badge>
+        </div>
+      </div>
 
-      <Box sx={{ p: 3 }}>
-        <Typography variant='h5' gutterBottom>
-          Three Service Websites
-        </Typography>
-
-        <Box sx={{ mb: 3 }}>
+      <div className='p-6'>
+        <h3 className='mb-4 text-xl font-semibold'>Three Service Websites</h3>
+        <div className='mb-6 space-y-2'>
           {sites.map((site) => (
-            <Box key={site.name} sx={{ mb: 1 }}>
-              <Link href={site.url} target='_blank' rel='noopener'>
+            <div key={site.name}>
+              <a
+                href={site.url}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-primary hover:underline'
+              >
                 {site.name}
-              </Link>
-            </Box>
+              </a>
+            </div>
           ))}
-        </Box>
+        </div>
 
-        <Typography variant='h6' gutterBottom sx={{ mt: 3 }}>
-          Shared Features
-        </Typography>
-        <Box sx={{ mb: 2 }}>
+        <h4 className='mb-3 font-semibold'>Shared Features</h4>
+        <ul className='mb-6 space-y-2'>
           {sharedFeatures.map((feature) => (
-            <Box key={feature} sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-              <CheckCircle color='success' sx={{ mr: 1, fontSize: 20 }} />
-              <Typography variant='body2'>{feature}</Typography>
-            </Box>
+            <li key={feature} className='flex items-center gap-2 text-sm'>
+              <CheckCircle className='h-4 w-4 text-green-500' />
+              <span>{feature}</span>
+            </li>
           ))}
-        </Box>
+        </ul>
 
-        <Typography variant='h6' gutterBottom sx={{ mt: 3 }}>
-          Tech Stack
-        </Typography>
-        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+        <h4 className='mb-3 font-semibold'>Tech Stack</h4>
+        <div className='flex flex-wrap gap-2'>
           {techStack.map((tech) => (
-            <Chip key={tech} label={tech} size='small' />
+            <Badge key={tech} variant='secondary'>
+              {tech}
+            </Badge>
           ))}
-        </Box>
-      </Box>
+        </div>
+      </div>
 
       <IntegrationSection />
       <ArchitectureSection />
-    </Paper>
+    </Card>
   );
 }

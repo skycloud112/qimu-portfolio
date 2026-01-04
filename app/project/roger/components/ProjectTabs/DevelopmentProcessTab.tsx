@@ -1,163 +1,131 @@
+import { Card, CardContent } from '@/components/ui/card';
 import {
-  Divider,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Paper,
-  Typography,
-} from '@mui/material';
-import Grid from '@mui/system/Grid';
-import {
-  Security,
-  Api,
-  Build,
+  Shield,
+  GitBranch,
+  Wrench,
   Code,
-  People,
-  Speed,
-  CloudQueue,
-  Storage,
-  AutoAwesome,
-} from '@mui/icons-material';
+  Users,
+  Zap,
+  Cloud,
+  Database,
+  Sparkles,
+} from 'lucide-react';
+
+const methodologyItems = [
+  {
+    icon: Shield,
+    title: 'Test-Driven Development',
+    desc: 'Comprehensive test coverage with Vitest, including use cases, entities, and gateways',
+  },
+  {
+    icon: GitBranch,
+    title: 'Clean Architecture',
+    desc: 'Separation of concerns with use cases, entities, and gateways',
+  },
+  {
+    icon: Wrench,
+    title: 'Iterative Development',
+    desc: 'Rapid feedback cycles with direct client communication',
+  },
+  {
+    icon: Code,
+    title: 'Code Quality Standards',
+    desc: 'Established patterns following SOLID, DRY, YAGNI, and KISS principles',
+  },
+];
+
+const managementItems = [
+  {
+    icon: Users,
+    title: 'Direct Client Collaboration',
+    desc: 'Regular meetings with business owner for requirements and feedback',
+  },
+  {
+    icon: Zap,
+    title: 'Rapid Delivery',
+    desc: 'Quick turnaround on feature requests and bug fixes',
+  },
+  {
+    icon: Cloud,
+    title: 'Continuous Deployment',
+    desc: 'Automated deployments to dev and production environments',
+  },
+  {
+    icon: Database,
+    title: 'Database Evolution',
+    desc: 'Managed schema migrations and data integrity',
+  },
+];
+
+const professionalItems = [
+  {
+    title: 'Client-Centric Development',
+    desc: 'Direct collaboration with business owner, translating requirements into technical solutions with quick turnaround times',
+  },
+  {
+    title: 'Quality-First Mindset',
+    desc: 'Test-driven development with comprehensive coverage, following SOLID principles and clean architecture patterns',
+  },
+  {
+    title: 'Full Ownership',
+    desc: 'End-to-end responsibility from architecture design to production deployment and ongoing maintenance',
+  },
+  {
+    title: 'Continuous Improvement',
+    desc: 'Iterative development with regular feedback cycles, constantly enhancing based on real-world usage',
+  },
+];
 
 export function DevelopmentProcessTab() {
   return (
     <>
-      <Grid container spacing={3}>
-        <Grid size={{ xs: 12, md: 6 }}>
-          <Typography variant='h5' gutterBottom color='primary'>
-            Development Methodology
-          </Typography>
-          <List>
-            <ListItem>
-              <ListItemIcon>
-                <Security color='primary' />
-              </ListItemIcon>
-              <ListItemText
-                primary='Test-Driven Development'
-                secondary='Comprehensive test coverage with Vitest, including use cases, entities, and gateways'
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <Api color='primary' />
-              </ListItemIcon>
-              <ListItemText
-                primary='Clean Architecture'
-                secondary='Separation of concerns with use cases, entities, and gateways'
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <Build color='primary' />
-              </ListItemIcon>
-              <ListItemText
-                primary='Iterative Development'
-                secondary='Rapid feedback cycles with direct client communication'
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <Code color='primary' />
-              </ListItemIcon>
-              <ListItemText
-                primary='Code Quality Standards'
-                secondary='Established patterns following SOLID, DRY, YAGNI, and KISS principles'
-              />
-            </ListItem>
-          </List>
-        </Grid>
-        <Grid size={{ xs: 12, md: 6 }}>
-          <Typography variant='h5' gutterBottom color='primary'>
-            Project Management
-          </Typography>
-          <List>
-            <ListItem>
-              <ListItemIcon>
-                <People color='primary' />
-              </ListItemIcon>
-              <ListItemText
-                primary='Direct Client Collaboration'
-                secondary='Regular meetings with business owner for requirements and feedback'
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <Speed color='primary' />
-              </ListItemIcon>
-              <ListItemText
-                primary='Rapid Delivery'
-                secondary='Quick turnaround on feature requests and bug fixes'
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <CloudQueue color='primary' />
-              </ListItemIcon>
-              <ListItemText
-                primary='Continuous Deployment'
-                secondary='Automated deployments to dev and production environments'
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <Storage color='primary' />
-              </ListItemIcon>
-              <ListItemText
-                primary='Database Evolution'
-                secondary='Managed schema migrations and data integrity'
-              />
-            </ListItem>
-          </List>
-        </Grid>
-      </Grid>
+      <div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
+        <div>
+          <h3 className='mb-4 text-xl font-semibold text-primary'>Development Methodology</h3>
+          <ul className='space-y-4'>
+            {methodologyItems.map((item) => (
+              <li key={item.title} className='flex gap-3'>
+                <item.icon className='mt-0.5 h-5 w-5 shrink-0 text-primary' />
+                <div>
+                  <div className='font-medium'>{item.title}</div>
+                  <div className='text-sm text-muted-foreground'>{item.desc}</div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 className='mb-4 text-xl font-semibold text-primary'>Project Management</h3>
+          <ul className='space-y-4'>
+            {managementItems.map((item) => (
+              <li key={item.title} className='flex gap-3'>
+                <item.icon className='mt-0.5 h-5 w-5 shrink-0 text-primary' />
+                <div>
+                  <div className='font-medium'>{item.title}</div>
+                  <div className='text-sm text-muted-foreground'>{item.desc}</div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
 
-      <Typography variant='h5' gutterBottom sx={{ mb: 3, mt: 4 }} color='primary'>
-        Professional Approach
-      </Typography>
-      <Paper elevation={2} sx={{ p: 4 }}>
-        <List>
-          <ListItem>
-            <ListItemIcon>
-              <AutoAwesome color='primary' />
-            </ListItemIcon>
-            <ListItemText
-              primary='Client-Centric Development'
-              secondary='Direct collaboration with business owner, translating requirements into technical solutions with quick turnaround times'
-            />
-          </ListItem>
-          <Divider variant='inset' component='li' />
-          <ListItem>
-            <ListItemIcon>
-              <AutoAwesome color='primary' />
-            </ListItemIcon>
-            <ListItemText
-              primary='Quality-First Mindset'
-              secondary='Test-driven development with comprehensive coverage, following SOLID principles and clean architecture patterns'
-            />
-          </ListItem>
-          <Divider variant='inset' component='li' />
-          <ListItem>
-            <ListItemIcon>
-              <AutoAwesome color='primary' />
-            </ListItemIcon>
-            <ListItemText
-              primary='Full Ownership'
-              secondary='End-to-end responsibility from architecture design to production deployment and ongoing maintenance'
-            />
-          </ListItem>
-          <Divider variant='inset' component='li' />
-          <ListItem>
-            <ListItemIcon>
-              <AutoAwesome color='primary' />
-            </ListItemIcon>
-            <ListItemText
-              primary='Continuous Improvement'
-              secondary='Iterative development with regular feedback cycles, constantly enhancing based on real-world usage'
-            />
-          </ListItem>
-        </List>
-      </Paper>
+      <h3 className='mb-4 mt-8 text-xl font-semibold text-primary'>Professional Approach</h3>
+      <Card>
+        <CardContent className='pt-6'>
+          <ul className='divide-y'>
+            {professionalItems.map((item) => (
+              <li key={item.title} className='flex gap-3 py-4 first:pt-0 last:pb-0'>
+                <Sparkles className='mt-0.5 h-5 w-5 shrink-0 text-primary' />
+                <div>
+                  <div className='font-medium'>{item.title}</div>
+                  <div className='text-sm text-muted-foreground'>{item.desc}</div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </CardContent>
+      </Card>
     </>
   );
 }

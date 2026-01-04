@@ -1,77 +1,71 @@
-import { Box, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
-import Grid from '@mui/system/Grid';
-import { Code, Build, Storage, Api, Speed, Security } from '@mui/icons-material';
+import { Code, Wrench, Database, GitBranch, Zap, Shield } from 'lucide-react';
+
+const leftItems = [
+  {
+    icon: Code,
+    title: 'Monorepo Structure',
+    desc: 'Turborepo with pnpm workspaces for efficient code sharing',
+  },
+  {
+    icon: Wrench,
+    title: 'Shared Component Library',
+    desc: '@repo/customer-sites-shared package with common UI components',
+  },
+  {
+    icon: Database,
+    title: 'Unified Data Layer',
+    desc: 'Common gateways and use case patterns across all sites',
+  },
+];
+
+const rightItems = [
+  {
+    icon: GitBranch,
+    title: 'Clean Architecture',
+    desc: 'CreateInquiry base class extended for each service type',
+  },
+  {
+    icon: Zap,
+    title: 'Rapid Deployment',
+    desc: 'Vercel deployment for all customer sites',
+  },
+  {
+    icon: Shield,
+    title: 'Comprehensive Testing',
+    desc: 'Shared test utilities and patterns with Vitest',
+  },
+];
 
 export function ArchitectureSection() {
   return (
-    <Box sx={{ p: 3, borderTop: 1, borderColor: 'divider' }}>
-      <Typography variant='h6' gutterBottom color='primary'>
+    <div className='border-t p-6'>
+      <h3 className='mb-4 text-lg font-semibold text-primary'>
         Unified Roger Project Architecture
-      </Typography>
-      <Grid container spacing={2}>
-        <Grid size={{ xs: 12, md: 6 }}>
-          <List dense>
-            <ListItem>
-              <ListItemIcon>
-                <Code color='primary' />
-              </ListItemIcon>
-              <ListItemText
-                primary='Monorepo Structure'
-                secondary='Turborepo with pnpm workspaces for efficient code sharing'
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <Build color='primary' />
-              </ListItemIcon>
-              <ListItemText
-                primary='Shared Component Library'
-                secondary='@repo/customer-sites-shared package with common UI components'
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <Storage color='primary' />
-              </ListItemIcon>
-              <ListItemText
-                primary='Unified Data Layer'
-                secondary='Common gateways and use case patterns across all sites'
-              />
-            </ListItem>
-          </List>
-        </Grid>
-        <Grid size={{ xs: 12, md: 6 }}>
-          <List dense>
-            <ListItem>
-              <ListItemIcon>
-                <Api color='primary' />
-              </ListItemIcon>
-              <ListItemText
-                primary='Clean Architecture'
-                secondary='CreateInquiry base class extended for each service type'
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <Speed color='primary' />
-              </ListItemIcon>
-              <ListItemText
-                primary='Rapid Deployment'
-                secondary='Vercel deployment for all customer sites'
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <Security color='primary' />
-              </ListItemIcon>
-              <ListItemText
-                primary='Comprehensive Testing'
-                secondary='Shared test utilities and patterns with Vitest'
-              />
-            </ListItem>
-          </List>
-        </Grid>
-      </Grid>
-    </Box>
+      </h3>
+      <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
+        <ul className='space-y-3'>
+          {leftItems.map((item) => (
+            <li key={item.title} className='flex gap-3'>
+              <item.icon className='mt-0.5 h-5 w-5 shrink-0 text-primary' />
+              <div>
+                <div className='font-medium'>{item.title}</div>
+                <div className='text-sm text-muted-foreground'>{item.desc}</div>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <ul className='space-y-3'>
+          {rightItems.map((item) => (
+            <li key={item.title} className='flex gap-3'>
+              <item.icon className='mt-0.5 h-5 w-5 shrink-0 text-primary' />
+              <div>
+                <div className='font-medium'>{item.title}</div>
+                <div className='text-sm text-muted-foreground'>{item.desc}</div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }

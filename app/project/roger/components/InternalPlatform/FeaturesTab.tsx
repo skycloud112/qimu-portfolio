@@ -1,47 +1,33 @@
-import { Box, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
-import Grid from '@mui/system/Grid';
-import { CheckCircle } from '@mui/icons-material';
+import { CheckCircle } from 'lucide-react';
 import { featureCategories } from '../data';
 
 export function FeaturesTab() {
   return (
     <>
-      <Typography variant='h5' gutterBottom color='primary' sx={{ mb: 3 }}>
+      <h3 className='mb-6 text-xl font-semibold text-primary'>
         Comprehensive Feature Set Delivered
-      </Typography>
-      <Grid container spacing={3}>
+      </h3>
+      <div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
         {featureCategories.map((category) => (
-          <Grid key={category.category} size={{ xs: 12, md: 6 }}>
-            <Typography variant='h6' gutterBottom>
-              {category.category}
-            </Typography>
-            <List dense>
+          <div key={category.category}>
+            <h4 className='mb-3 font-semibold'>{category.category}</h4>
+            <ul className='space-y-2'>
               {category.items.map((item) => (
-                <ListItem key={item}>
-                  <ListItemIcon>
-                    <CheckCircle color='success' />
-                  </ListItemIcon>
-                  <ListItemText primary={item} />
-                </ListItem>
+                <li key={item} className='flex items-start gap-2 text-sm'>
+                  <CheckCircle className='mt-0.5 h-4 w-4 shrink-0 text-green-500' />
+                  <span>{item}</span>
+                </li>
               ))}
-            </List>
-          </Grid>
+            </ul>
+          </div>
         ))}
-      </Grid>
-      <Box
-        sx={{
-          mt: 3,
-          p: 2,
-          bgcolor: 'background.paper',
-          border: 1,
-          borderColor: 'divider',
-          borderRadius: 1,
-        }}>
-        <Typography variant='body2' color='text.secondary'>
+      </div>
+      <div className='mt-6 rounded-lg border bg-card p-4'>
+        <p className='text-sm text-muted-foreground'>
           All features implemented with comprehensive test coverage using Vitest, following
           test-driven development practices
-        </Typography>
-      </Box>
+        </p>
+      </div>
     </>
   );
 }

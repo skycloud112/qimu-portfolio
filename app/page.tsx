@@ -1,29 +1,31 @@
-'use client';
-
-import { Container, Typography, Link, Stack } from '@mui/material';
-import NextLink from 'next/link';
+import Link from 'next/link';
 
 export default function HomePage() {
   return (
-    <Container maxWidth='lg' sx={{ py: 8 }}>
-      <Stack spacing={4}>
-        <Stack spacing={1}>
-          <Typography variant='h5'>Blogs</Typography>
-          <Link component={NextLink} href='/blog/article-1'>
+    <div className='mx-auto max-w-6xl px-4 py-16'>
+      <div className='flex flex-col gap-8'>
+        <div className='flex flex-col gap-2'>
+          <h2 className='text-xl font-medium'>Blogs</h2>
+          <Link href='/blog/article-1' className='text-primary hover:underline'>
             My First Blog Article
           </Link>
-          <Link href='https://qimu.medium.com/' target='_blank' rel='noopener'>
+          <a
+            href='https://qimu.medium.com/'
+            target='_blank'
+            rel='noopener'
+            className='text-primary hover:underline'
+          >
             Medium
-          </Link>
-        </Stack>
+          </a>
+        </div>
 
-        <Stack spacing={1}>
-          <Typography variant='h5'>Projects</Typography>
-          <Link component={NextLink} href='/project/roger'>
+        <div className='flex flex-col gap-2'>
+          <h2 className='text-xl font-medium'>Projects</h2>
+          <Link href='/project/roger' className='text-primary hover:underline'>
             Roger Snow Removal
           </Link>
-        </Stack>
-      </Stack>
-    </Container>
+        </div>
+      </div>
+    </div>
   );
 }

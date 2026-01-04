@@ -1,8 +1,5 @@
 'use client';
 
-import React from 'react';
-import { Container, Typography } from '@mui/material';
-import { useState } from 'react';
 import { ProjectOverview } from './components/ProjectOverview';
 import { ProjectMetrics } from './components/ProjectMetrics';
 import { InternalPlatformSection } from './components/InternalPlatform/InternalPlatformSection';
@@ -11,31 +8,22 @@ import { ProjectTabs } from './components/ProjectTabs/ProjectTabs';
 import { Footer } from './components/Footer';
 
 export const RogerPage = () => {
-  const [projectTabValue, setProjectTabValue] = useState(0);
-
-  const handleProjectTabChange = (_event: React.SyntheticEvent, newValue: number) => {
-    setProjectTabValue(newValue);
-  };
-
   return (
-    <Container maxWidth='lg' sx={{ py: 8 }}>
-      <Typography variant='overline' sx={{ color: 'primary.main', fontWeight: 600 }}>
+    <div className='mx-auto max-w-6xl px-4 py-16'>
+      <span className='text-xs font-semibold uppercase tracking-wide text-primary'>
         Featured Project
-      </Typography>
-      <Typography variant='h2' gutterBottom sx={{ mb: 2 }}>
-        The Roger Project
-      </Typography>
-
-      <Typography variant='h5' sx={{ mb: 4, color: 'text.secondary' }}>
+      </span>
+      <h1 className='mb-2 text-4xl font-medium'>The Roger Project</h1>
+      <p className='mb-8 text-xl text-muted-foreground'>
         Complete Digital Ecosystem for Service Business Operations
-      </Typography>
+      </p>
 
       <ProjectOverview />
       <ProjectMetrics />
       <InternalPlatformSection />
       <CustomerWebsitesSection />
-      <ProjectTabs tabValue={projectTabValue} onTabChange={handleProjectTabChange} />
+      <ProjectTabs />
       <Footer />
-    </Container>
+    </div>
   );
 };
