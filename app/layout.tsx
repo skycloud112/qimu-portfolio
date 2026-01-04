@@ -1,5 +1,6 @@
 import Navigation from '../components/Navigation';
 import './globals.css';
+import { Analytics } from '@vercel/analytics/next';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,6 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className='min-h-screen'>
         <Navigation />
         {children}
+        <Analytics />
       </body>
     </html>
   );
