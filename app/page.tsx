@@ -7,7 +7,7 @@ export default function HomePage() {
         <div className='flex flex-col gap-2'>
           <h2 className='text-xl font-medium'>Blogs</h2>
           <Link href='/blog/article-1' className='text-primary hover:underline'>
-            My First Blog Article
+            How to share claude.md with another person
           </Link>
           <a
             href='https://qimu.medium.com/'
