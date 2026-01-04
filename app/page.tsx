@@ -1,40 +1,26 @@
 'use client';
 
-import { Container, Typography } from '@mui/material';
-import { useState } from 'react';
-import { ProjectOverview } from './components/ProjectOverview';
-import { ProjectMetrics } from './components/ProjectMetrics';
-import { InternalPlatformSection } from './components/InternalPlatform/InternalPlatformSection';
-import { CustomerWebsitesSection } from './components/CustomerWebsites/CustomerWebsitesSection';
-import { ProjectTabs } from './components/ProjectTabs/ProjectTabs';
-import { Footer } from './components/Footer';
+import { Container, Typography, Link, Stack } from '@mui/material';
+import NextLink from 'next/link';
 
 export default function HomePage() {
-  const [projectTabValue, setProjectTabValue] = useState(0);
-
-  const handleProjectTabChange = (_event: React.SyntheticEvent, newValue: number) => {
-    setProjectTabValue(newValue);
-  };
-
   return (
     <Container maxWidth='lg' sx={{ py: 8 }}>
-      <Typography variant='overline' sx={{ color: 'primary.main', fontWeight: 600 }}>
-        Featured Project
-      </Typography>
-      <Typography variant='h2' gutterBottom sx={{ mb: 2 }}>
-        The Roger Project
-      </Typography>
+      <Stack spacing={4}>
+        <Stack spacing={1}>
+          <Typography variant='h5'>Blogs</Typography>
+          <Link href='https://qimu.medium.com/' target='_blank' rel='noopener'>
+            Medium
+          </Link>
+        </Stack>
 
-      <Typography variant='h5' sx={{ mb: 4, color: 'text.secondary' }}>
-        Complete Digital Ecosystem for Service Business Operations
-      </Typography>
-
-      <ProjectOverview />
-      <ProjectMetrics />
-      <InternalPlatformSection />
-      <CustomerWebsitesSection />
-      <ProjectTabs tabValue={projectTabValue} onTabChange={handleProjectTabChange} />
-      <Footer />
+        <Stack spacing={1}>
+          <Typography variant='h5'>Projects</Typography>
+          <Link component={NextLink} href='/project/roger'>
+            Roger Snow Removal
+          </Link>
+        </Stack>
+      </Stack>
     </Container>
   );
 }

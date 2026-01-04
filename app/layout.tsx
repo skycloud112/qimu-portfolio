@@ -1,13 +1,8 @@
-import type { Metadata } from 'next';
-import ThemeRegistry from './ThemeRegistry';
-import Navigation from './components/Navigation';
-import './globals.css';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Qi Mu - Full Stack Engineer',
-  description:
-    'Full Stack Engineer specializing in React, TypeScript, and cloud-based applications',
-};
+import ThemeRegistry from './ThemeRegistry';
+import Navigation from '../components/Navigation';
+import './globals.css';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
