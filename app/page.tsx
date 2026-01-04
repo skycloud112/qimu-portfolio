@@ -15,7 +15,7 @@ export default function HomePage() {
             rel='noopener'
             className='text-primary hover:underline'
           >
-            Medium
+            Medium articles
           </a>
         </div>
 
