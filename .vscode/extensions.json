@@ -1,6 +1,3 @@
 {
-  "recommendations": [
-    "ryanluker.vscode-coverage-gutters",
-    "mhutchie.git-graph"
-  ]
+  "recommendations": ["ryanluker.vscode-coverage-gutters", "mhutchie.git-graph","prettier.prettier-vscode"]
 }
