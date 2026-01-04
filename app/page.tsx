@@ -9,6 +9,12 @@ export default function HomePage() {
           <Link href='/blog/2026-01-04-sharing-claude-md' className='text-primary hover:underline'>
             How to share claude.md with another person
           </Link>
+          <Link
+            href='/blog/2026-01-04-single-loading-guard-for-providers'
+            className='text-primary hover:underline'
+          >
+            Using a Single LoadingGuard for Multiple Providers in Next.js
+          </Link>
           <a
             href='https://qimu.medium.com/'
             target='_blank'
