@@ -4,10 +4,5 @@
   "editor.detectIndentation": true,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "prettier.prettier-vscode",
-  "editor.tabSize": 2,
-  "eslint.workingDirectories": [
-    {
-      "mode": "auto"
-    }
-  ]
+  "editor.tabSize": 2
 }
