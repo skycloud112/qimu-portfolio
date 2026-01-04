@@ -6,7 +6,7 @@ export default function HomePage() {
       <div className='flex flex-col gap-8'>
         <div className='flex flex-col gap-2'>
           <h2 className='text-xl font-medium'>Blogs</h2>
-          <Link href='/blog/article-1' className='text-primary hover:underline'>
+          <Link href='/blog/2026-01-04-sharing-claude-md' className='text-primary hover:underline'>
             How to share claude.md with another person
           </Link>
           <a
