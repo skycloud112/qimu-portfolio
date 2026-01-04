@@ -1,1 +1,2 @@
-do not start or stop nextjs server automatically
+- do not start or stop nextjs server automatically
+- when updating blog url, also update it at home page (app/page.tsx)
