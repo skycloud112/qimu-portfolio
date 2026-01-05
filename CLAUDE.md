@@ -1,2 +1,4 @@
 - do not start or stop nextjs server automatically
 - when updating blog url, also update it at home page (app/page.tsx)
+- blog posts are in /app/blog
+  - filename format: year-month-date-post-number-main-idea

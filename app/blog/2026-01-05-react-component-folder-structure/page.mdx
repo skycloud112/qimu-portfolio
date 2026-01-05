@@ -1,0 +1,94 @@
+# React Component Folder Structure
+
+When a component grows large with sub-components, organize it in a folder where the folder name matches the main component name.
+
+## Structure Overview
+
+```
+MainComponent/
+  MainComponent.tsx      # Main component file
+  components/            # Sub-components used directly by MainComponent
+  shared/                # Shared utilities/components used by multiple tabs
+  tabs/                  # Sub-domain folders (can be any grouping)
+```
+
+## Real Example
+
+```
+JobDashboardPage/
+  JobDashboardPage.tsx
+  components/
+    JobDatePicker/
+    JobDashboardTab.ts
+    useBatchAssignmentWorkerIdsParams.ts
+    useJobDashboardTabParams.ts
+    useJobDate.ts
+  shared/
+    AssignmentsTable/
+    DeleteJobByIdUseCase/
+  tabs/
+    ActiveWorkersTab/
+    BatchAssignmentTab/
+    CrewTab/
+    GoingToJobWorkersTab/
+    JobsTab/
+```
+
+## Nested Structure Within Tabs
+
+Each tab can have its own sub-structure following the same pattern:
+
+```
+tabs/
+  BatchAssignmentTab/
+    BatchAssignmentTab.tsx
+    components/
+      WorkerSearchField.tsx
+      DifficultyFilter.tsx
+      EquipmentFilter.tsx
+    SearchJobIdsUseCase/
+      SearchJobIdsUseCase.ts
+      SearchJobIdsAction.ts
+      useSearchJobIds.ts
+      _tests/
+    ValidateWorkersNotBelongToCrewUseCase/
+      ...
+  CrewTab/
+    CrewTab.tsx
+    CreateCrewDialog/
+      CreateCrewUseCase/
+    CrewCards/
+      CrewCards.tsx
+      GetCrewsUseCase/
+      CrewCard/
+        CrewCard.tsx
+        DeleteCrewUseCase/
+        EditAssignmentDialog/
+          EditAssignmentForm/
+            GetAssignmentsTableParamsForCrewUseCase/
+        EditCrewDialog/
+          EditCrewForm/
+            GetCrewUseCase/
+            UpdateCrewUseCase/
+```
+
+## Key Principles
+
+**Folder name = Component name**: The folder `JobDashboardPage` contains `JobDashboardPage.tsx`. This makes imports predictable.
+
+**components/**: Contains sub-components and hooks used directly by the main component. These are implementation details of the main component.
+
+**shared/**: Contains utilities and components shared across multiple sub-domain folders (like tabs). If `AssignmentsTable` is used by both `BatchAssignmentTab` and `CrewTab`, it goes here.
+
+**tabs/ (sub-domains)**: Group related sub-components by feature or domain. The folder name can be anything that makes sense for your context - `tabs/`, `sections/`, `panels/`, etc.
+
+**Recursive structure**: Each sub-domain can follow the same pattern with its own `components/`, use cases, and nested components. `CrewTab` has `CrewCards`, which has `CrewCard`, which has `EditCrewDialog`, and so on.
+
+**Use cases alongside components**: Business logic lives in use case folders next to the components that use them (`DeleteCrewUseCase/` inside `CrewCard/`).
+
+## When to Use This Pattern
+
+- Component has more than 2-3 sub-components
+- Sub-components need to share utilities
+- You want clear separation between direct children and shared code
+- Features have nested complexity that benefits from hierarchical organization

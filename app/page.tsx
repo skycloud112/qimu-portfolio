@@ -7,6 +7,12 @@ export default function HomePage() {
         <div className='flex flex-col gap-2'>
           <h2 className='text-xl font-medium'>Blogs</h2>
           <Link
+            href='/blog/2026-01-05-react-component-folder-structure'
+            className='text-primary hover:underline'
+          >
+            2026-01-05 - React Component Folder Structure
+          </Link>
+          <Link
             href='/blog/2026-01-04-2-single-loading-guard-for-many-providers-pattern'
             className='text-primary hover:underline'
           >
