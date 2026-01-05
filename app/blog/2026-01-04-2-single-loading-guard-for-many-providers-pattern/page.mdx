@@ -51,3 +51,47 @@ export default function Layout({ children }) {
 ```
 
 The guard must be inside `APIProvider` and `SessionProvider` to access their hooks.
+
+## Combining Provider and Loading Guard
+
+You can combine a provider and its loading guard into a single component. This guarantees that children always have access to loaded data, eliminating null checks.
+
+```tsx
+// auth/SessionLoadingGuard.tsx
+import { SessionProvider } from 'next-auth/react';
+import { usePermissions } from '@app-admin/auth/usePermissions';
+import { LoadingCircular } from '@repo/ui/LoadingCircular';
+
+export const SessionLoadingGuard = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <SessionProvider>
+      <ChildrenWrapper>{children}</ChildrenWrapper>
+    </SessionProvider>
+  );
+};
+
+const ChildrenWrapper = ({ children }: { children: React.ReactNode }) => {
+  const { isLoading } = usePermissions();
+
+  if (isLoading) {
+    return <LoadingCircular />;
+  }
+
+  return <>{children}</>;
+};
+```
+
+Now any component using `useSession` or `usePermissions` inside `SessionLoadingGuard` can assume the session is loaded:
+
+```tsx
+// Before: null checks everywhere
+const { data: session } = useSession();
+if (!session) return null;
+const userId = session.user.id;
+
+// After: session is always available
+const { data: session } = useSession();
+const userId = session!.user.id;
+```
+
+This pattern moves the loading logic to the boundary, keeping child components simple.
