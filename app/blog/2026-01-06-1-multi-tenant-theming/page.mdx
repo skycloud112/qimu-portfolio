@@ -286,4 +286,27 @@ const preview: Preview = {
 }
 ```
 
+## Anti-Pattern: Webpack-Based Component Overrides
+
+Avoid using webpack aliases to swap components per tenant:
+
+```
+// Don't do this
+Button.tsx           // base component
+Button.tenant1.tsx   // tenant 1 override
+Button.tenant2.tsx   // tenant 2 override
+```
+
+**Problems with this approach:**
+
+1. **Complex build configuration** - Requires custom webpack/bundler setup to resolve tenant-specific files, adding maintenance burden and potential build issues.
+
+2. **Low-level components become brand-aware** - When a `Button` knows about `tenant1` or `tenant2`, it increases cognitive load and hurts composability. The component can no longer be reasoned about in isolation.
+
+3. **Harder to test and reuse** - Components tied to specific tenants are difficult to test generically and cannot be easily shared across projects.
+
+**Better approach:** Keep low-level components dumb. They should receive design tokens via props or context, allowing parent components to decide styling. This maintains separation of concerns and keeps components composable.
+
+---
+
 This architecture provides a scalable solution for multi-tenant theming with zero code duplication and full type safety.
