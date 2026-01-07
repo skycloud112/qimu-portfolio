@@ -1,0 +1,287 @@
+# Multi-Tenant Theming: One Codebase, Multiple Brand Identities
+
+When building SaaS products, you often need to support multiple tenants with distinct visual identities. You can use design tokens with React Context to serve all tenants from a single codebase.
+
+## Architecture
+
+```
+Environment Variable (NEXT_PUBLIC_TENANT)
+    ↓
+Design Tokens (platform-agnostic colors)
+    ↓
+MUI Theme (MUI-specific configuration)
+    ↓
+Components (via useDesignTokens hook)
+```
+
+## Implementation
+
+### 1. Define Design Tokens Type
+
+```typescript
+// packages/theme/types.ts
+export type DesignTokens = {
+  name: string;
+  colors: {
+    primary: string;
+    secondary: string;
+    background: string;
+    surface: string;
+    text: string;
+    textMuted: string;
+    border: string;
+    success: string;
+    warning: string;
+    error: string;
+  };
+};
+```
+
+### 2. Create Tenant Token Files
+
+```typescript
+// packages/theme/tenants/tenant1.ts
+import { DesignTokens } from '../types';
+
+export const tenant1Tokens: DesignTokens = {
+  name: 'Tenant 1',
+  colors: {
+    primary: '#0052CC',
+    secondary: '#6554C0',
+    background: '#FAFBFC',
+    surface: '#FFFFFF',
+    text: '#172B4D',
+    textMuted: '#5E6C84',
+    border: '#DFE1E6',
+    success: '#36B37E',
+    warning: '#FFAB00',
+    error: '#FF5630',
+  },
+};
+```
+
+```typescript
+// packages/theme/tenants/tenant2.ts
+import { DesignTokens } from '../types';
+
+export const tenant2Tokens: DesignTokens = {
+  name: 'Tenant 2',
+  colors: {
+    primary: '#00875A',
+    secondary: '#36B37E',
+    background: '#F4F5F7',
+    surface: '#FFFFFF',
+    text: '#091E42',
+    textMuted: '#6B778C',
+    border: '#C1C7D0',
+    success: '#00875A',
+    warning: '#FF8B00',
+    error: '#DE350B',
+  },
+};
+```
+
+### 3. Create Token Registry
+
+```typescript
+// packages/theme/getTenantTheme.ts
+import { DesignTokens } from './types';
+import { tenant1Tokens } from './tenants/tenant1';
+import { tenant2Tokens } from './tenants/tenant2';
+
+const tenants: Record<string, DesignTokens> = {
+  tenant1: tenant1Tokens,
+  tenant2: tenant2Tokens,
+};
+
+export const getTenantTokens = (tenantName: string): DesignTokens => {
+  return tenants[tenantName] || tenant1Tokens;
+};
+```
+
+### 4. Create MUI Theme from Tokens
+
+```typescript
+// packages/theme/createMuiTheme.ts
+import { createTheme, Theme } from '@mui/material/styles';
+import { DesignTokens } from './types';
+
+export const createMuiTheme = (tokens: DesignTokens): Theme => {
+  return createTheme({
+    palette: {
+      primary: { main: tokens.colors.primary },
+      secondary: { main: tokens.colors.secondary },
+      background: {
+        default: tokens.colors.background,
+        paper: tokens.colors.surface,
+      },
+      text: {
+        primary: tokens.colors.text,
+        secondary: tokens.colors.textMuted,
+      },
+      success: { main: tokens.colors.success },
+      warning: { main: tokens.colors.warning },
+      error: { main: tokens.colors.error },
+      divider: tokens.colors.border,
+    },
+  });
+};
+```
+
+### 5. Create React Context Provider
+
+```typescript
+// packages/theme/DesignTokensProvider.tsx
+'use client'
+
+import { createContext, useContext, ReactNode } from 'react'
+import { DesignTokens } from './types'
+
+const DesignTokensContext = createContext<DesignTokens | undefined>(undefined)
+
+type DesignTokensProviderProps = {
+  tokens: DesignTokens
+  children: ReactNode
+}
+
+export const DesignTokensProvider = ({ tokens, children }: DesignTokensProviderProps) => {
+  return (
+    <DesignTokensContext.Provider value={tokens}>
+      {children}
+    </DesignTokensContext.Provider>
+  )
+}
+
+export const useDesignTokens = (): DesignTokens => {
+  const context = useContext(DesignTokensContext)
+  if (!context) {
+    throw new Error('useDesignTokens must be used within DesignTokensProvider')
+  }
+  return context
+}
+```
+
+### 6. Set Up Root Layout
+
+```typescript
+// apps/admin/app/layout.tsx
+'use client'
+
+import { ThemeProvider } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline'
+import { getTenantTokens, createMuiTheme, DesignTokensProvider } from '@repo/theme'
+
+const tenantName = process.env.NEXT_PUBLIC_TENANT || 'tenant1'
+const tokens = getTenantTokens(tenantName)
+const muiTheme = createMuiTheme(tokens)
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body style={{ margin: 0 }}>
+        <DesignTokensProvider tokens={tokens}>
+          <ThemeProvider theme={muiTheme}>
+            <CssBaseline />
+            {children}
+          </ThemeProvider>
+        </DesignTokensProvider>
+      </body>
+    </html>
+  )
+}
+```
+
+### 7. Use Tokens in Components
+
+```typescript
+// packages/ui/components/AppHeader.tsx
+import { AppBar, Toolbar, Typography, Box } from '@mui/material'
+import { useDesignTokens } from '@repo/theme'
+
+type AppHeaderProps = {
+  appName: string
+}
+
+export const AppHeader = ({ appName }: AppHeaderProps) => {
+  const tokens = useDesignTokens()
+
+  return (
+    <AppBar
+      position="static"
+      sx={{
+        bgcolor: tokens.colors.primary,
+        boxShadow: 'none',
+        borderBottom: '1px solid',
+        borderColor: 'divider',
+      }}
+    >
+      <Toolbar>
+        <Typography variant="h6" fontWeight={700} sx={{ color: '#fff' }}>
+          {appName}
+        </Typography>
+        <Box sx={{ flexGrow: 1 }} />
+        <Typography variant="body2" sx={{ color: '#fff', opacity: 0.8 }}>
+          {tokens.name}
+        </Typography>
+      </Toolbar>
+    </AppBar>
+  )
+}
+```
+
+## Running Different Tenants
+
+```json
+// package.json scripts
+{
+  "admin:tenant1": "NEXT_PUBLIC_TENANT=tenant1 turbo run dev --filter=admin",
+  "admin:tenant2": "NEXT_PUBLIC_TENANT=tenant2 turbo run dev --filter=admin"
+}
+```
+
+## Adding a New Tenant
+
+1. Create token file: `packages/theme/tenants/tenant3.ts`
+2. Register in `getTenantTheme.ts`
+3. Add npm scripts to `package.json`
+
+## Storybook Integration
+
+Add a tenant switcher to preview components with different themes:
+
+```typescript
+// packages/ui/.storybook/preview.tsx
+const preview: Preview = {
+  globalTypes: {
+    tenant: {
+      description: 'Tenant theme',
+      toolbar: {
+        title: 'Tenant',
+        icon: 'paintbrush',
+        items: [
+          { value: 'tenant1', title: 'Tenant 1' },
+          { value: 'tenant2', title: 'Tenant 2' },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
+  decorators: [
+    (Story, context) => {
+      const tenant = context.globals.tenant || 'tenant1'
+      const tokens = getTenantTokens(tenant)
+      const muiTheme = createMuiTheme(tokens)
+
+      return (
+        <DesignTokensProvider tokens={tokens}>
+          <ThemeProvider theme={muiTheme}>
+            <Story />
+          </ThemeProvider>
+        </DesignTokensProvider>
+      )
+    },
+  ],
+}
+```
+
+This architecture provides a scalable solution for multi-tenant theming with zero code duplication and full type safety.

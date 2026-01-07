@@ -7,6 +7,12 @@ export default function HomePage() {
         <div className='flex flex-col gap-2'>
           <h2 className='text-xl font-medium'>Blogs</h2>
           <Link
+            href='/blog/2026-01-06-1-multi-tenant-theming'
+            className='text-primary hover:underline'
+          >
+            2026-01-06 - Multi-Tenant Theming: One Codebase, Multiple Brand Identities
+          </Link>
+          <Link
             href='/blog/2026-01-05-react-component-folder-structure'
             className='text-primary hover:underline'
           >
