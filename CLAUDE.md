@@ -2,3 +2,4 @@
 - when updating blog url, also update it at home page (app/page.tsx)
 - blog posts are in /app/blog
   - filename format: year-month-date-post-number-main-idea
+- when I ask you to write a linkedin post for a blog post, create an md file for the linkedin post in the tmp folder at this project root
