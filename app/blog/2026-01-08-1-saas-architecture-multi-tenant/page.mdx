@@ -1,0 +1,226 @@
+# Architecting a Multi-Tenant SaaS: Clean Architecture with Per-Tenant Branding
+
+When building a SaaS product that serves multiple tenants, you need both a solid architecture for business logic and a flexible theming system for per-tenant branding. This post covers how to structure a monorepo with clean architecture layers and tenant-specific theming.
+
+[View the full implementation on GitHub](https://github.com/skycloud112/servicenow-clone)
+
+## Monorepo Structure
+
+Using Turborepo with pnpm workspaces, the codebase is organized into packages and apps:
+
+```
+packages/
+  entities/     # Domain models (User, Incident)
+  gateways/     # Data access layer (interfaces + implementations)
+  theme/        # Multi-tenant design tokens
+  ui/           # Shared React components
+  utils/        # Utility functions (uuid, date)
+apps/
+  admin/        # Admin portal (port 3001)
+  user/         # User portal (port 3002)
+```
+
+Each package has explicit exports in `package.json` for tree-shaking:
+
+```json
+{
+  "exports": {
+    "./UserGateway": "./src/UserGateway/UserGateway.ts",
+    "./IncidentGateway": "./src/IncidentGateway/IncidentGateway.ts"
+  }
+}
+```
+
+## Architecture Layers
+
+```
+UI (React Components)
+    ↓
+Actions (Next.js Server Functions)
+    ↓
+Use Cases (Business Logic)
+    ↓
+Gateways & Entities (Data Access & Domain Models)
+```
+
+### Entities
+
+Simple classes representing domain models. Could have methods operate on the properties.
+
+```typescript
+// packages/entities/src/User.ts
+export class User {
+  constructor(
+    public readonly id: string,
+    public email: string,
+    public displayName: string,
+    public role: UserRole,
+    public createdAt: Date,
+    public updatedAt: Date,
+  ) {}
+}
+```
+
+### Gateways
+
+Data access layer with dual implementations for testability:
+
+```typescript
+// Interface
+export type UserGateway = {
+  getUsers: () => Promise<User[]>;
+  createUser: (user: User) => Promise<void>;
+};
+
+// Real implementation (PostgreSQL)
+export class UserGatewayImpl implements UserGateway {
+  constructor(private pool: Pool) {}
+
+  async getUsers(): Promise<User[]> {
+    const result = await this.pool.query(sql`SELECT * FROM users`);
+    return result.rows.map(toUser);
+  }
+}
+
+// In-memory implementation (testing)
+export class InMemoryUserGateway implements UserGateway {
+  private users = new Map<string, User>();
+
+  async getUsers(): Promise<User[]> {
+    return Array.from(this.users.values());
+  }
+}
+```
+
+### Use Cases
+
+All business logic lives here. Use cases receive gateways via constructor injection and return DTOs:
+
+```typescript
+// apps/admin/app/users/useCases/GetUsersUseCase/GetUsersUseCase.ts
+type GetUsersResponse = {
+  users: Array<{
+    id: string;
+    email: string;
+    displayName: string;
+    createdAt: string; // ISO string, not Date
+  }>;
+};
+
+export class GetUsersUseCase {
+  constructor(private userGateway: UserGateway) {}
+
+  async getUsers(): Promise<GetUsersResponse> {
+    const users = await this.userGateway.getUsers();
+    return {
+      users: users.map((user) => ({
+        id: user.id,
+        email: user.email,
+        displayName: user.displayName,
+        createdAt: user.createdAt.toISOString(),
+      })),
+    };
+  }
+}
+```
+
+### Actions
+
+Server functions that instantiate use cases with real implementations:
+
+```typescript
+// apps/admin/app/users/useCases/GetUsersUseCase/GetUsersUseCaseActions.ts
+'use server';
+
+import { pool } from '@admin/utils/poolUtils';
+import { UserGatewayImpl } from '@repo/gateways/UserGateway';
+import { GetUsersUseCase } from './GetUsersUseCase';
+
+export const GetUsersUseCaseGetUsersAction = async () => {
+  const useCase = new GetUsersUseCase(new UserGatewayImpl(pool));
+  return useCase.getUsers();
+};
+```
+
+### React Query Hooks
+
+Thin wrappers around actions with default values:
+
+```typescript
+// apps/admin/app/users/useCases/GetUsersUseCase/useGetUsers.ts
+export const useGetUsers = () => {
+  const query = useQuery({
+    queryKey: ['users'],
+    queryFn: GetUsersUseCaseGetUsersAction,
+  });
+
+  return {
+    users: query.data?.users ?? [],
+    isLoading: query.isLoading,
+    error: query.error,
+  };
+};
+```
+
+### UI Components
+
+Components only render. No business logic:
+
+```typescript
+// apps/admin/app/users/UsersPage.tsx
+'use client';
+
+import { useGetUsers } from './useCases/GetUsersUseCase/useGetUsers';
+
+export const UsersPage = () => {
+  const { users, isLoading } = useGetUsers();
+
+  if (isLoading) return <LoadingSpinner />;
+
+  return (
+    <Stack>
+      {users.map(user => (
+        <UserCard key={user.id} user={user} />
+      ))}
+    </Stack>
+  );
+};
+```
+
+## Per-Tenant Theming
+
+For detailed theming implementation, see [Multi-Tenant Theming: One Codebase, Multiple Brand Identities](/blog/2026-01-06-1-multi-tenant-theming).
+
+The theming system uses a two-layer approach:
+
+1. **MUI Theme Layer** - Design tokens converted to MUI palette for automatic component styling
+2. **Design Tokens Context** - Direct access via `useDesignTokens()` hook for custom styling
+
+```typescript
+// Root layout
+const tenantName = process.env.NEXT_PUBLIC_TENANT || 'tenant1';
+const tokens = getTenantTokens(tenantName);
+const muiTheme = createMuiTheme(tokens);
+
+return (
+  <DesignTokensProvider tokens={tokens}>
+    <ThemeProvider theme={muiTheme}>
+      {children}
+    </ThemeProvider>
+  </DesignTokensProvider>
+);
+```
+
+## Key Patterns
+
+**Dependency Injection**: Gateways passed to use case constructors, enabling easy testing with in-memory implementations.
+
+**DTO Pattern**: Use cases transform entities to DTOs for transport to UI. Dates become ISO strings. Domain and UI can evolve independently.
+
+**Command/Query Separation**: Gateway methods are either commands (createUser, updateUser) or queries (getUsers, getUser). Separate files for each operation for not make main file too big.
+
+**Environment-Based Tenant Selection**: `NEXT_PUBLIC_TENANT` environment variable selects tenant.
+
+---
+
+This architecture provides clear separation of concerns, excellent testability through dual gateway implementations, and flexible multi-tenant theming from a single codebase.

@@ -7,6 +7,13 @@ export default function HomePage() {
         <div className='flex flex-col gap-2'>
           <h2 className='text-xl font-medium'>Blogs</h2>
           <Link
+            href='/blog/2026-01-08-1-saas-architecture-multi-tenant'
+            className='text-primary hover:underline'
+          >
+            2026-01-08 - Architecting a Multi-Tenant SaaS: Clean Architecture with Per-Tenant
+            Branding
+          </Link>
+          <Link
             href='/blog/2026-01-06-1-multi-tenant-theming'
             className='text-primary hover:underline'
           >
