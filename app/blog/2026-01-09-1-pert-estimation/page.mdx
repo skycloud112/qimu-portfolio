@@ -14,35 +14,35 @@ PERT (Program Evaluation and Review Technique) is an estimation method that ackn
 - **Normal case (Most Likely)**: Realistic scenario with typical challenges
 - **Worst case (Pessimistic)**: Murphy's Law kicks in, unexpected issues arise
 
-## Example: Estimating a Feature Set
-
-| Feature   | Best  | Normal | Worst  |
-| --------- | ----- | ------ | ------ |
-| Feature 1 | 1     | 3      | 6      |
-| Feature 2 | 2     | 4      | 8      |
-| **Total** | **3** | **7**  | **14** |
-
-Instead of committing to a single number, you communicate a range: **3 to 14 days**, with 7 days being most likely.
-
-## The PERT Formula
+## The PERT Formulas
 
 PERT calculates a weighted average that accounts for uncertainty:
 
 ```
-Expected = (Optimistic + 4 × Most Likely + Pessimistic) / 6
+Expected = (Best + 4 × Normal + Worst) / 6
+σ = (Worst - Best) / 6
 ```
 
-For our example:
+The formula weights the most likely estimate more heavily (4×) since that's where reality usually lands. The standard deviation (σ) captures how uncertain each estimate is.
 
-- Feature 1: (1 + 4×3 + 6) / 6 = **3.2 days**
-- Feature 2: (2 + 4×4 + 8) / 6 = **4.3 days**
-- **Total Expected: 7.5 days**
+## Example: Estimating a Feature Set
 
-The formula weights the most likely estimate more heavily (4×) since that's where reality usually lands.
+| Feature   | Best | Normal | Worst | Expected | σ    |
+| --------- | ---- | ------ | ----- | -------- | ---- |
+| Feature 1 | 1    | 3      | 6     | 3.2 days | 0.83 |
+| Feature 2 | 2    | 4      | 8     | 4.3 days | 1.00 |
+
+**If Sequential:**
+
+- **Total: 7.5 days**
+- Combined σ: 1.3 days
+- 95% range: ~5-10 days
+
+Instead of committing to a single number, you communicate a range with confidence levels.
 
 ## Why This Works
 
-1. **Honesty builds trust**: Stakeholders appreciate transparency over false confidence
+1. **Avoid domino effect**: Communicating uncertainty prevents downstream teams from building plans on shaky commitments
 2. **Sets realistic expectations**: A range prepares everyone for variability
 3. **Reduces stress**: You're not locked into a single number you might miss
 4. **Encourages discussion**: The range opens conversation about priorities and trade-offs
