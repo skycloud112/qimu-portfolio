@@ -1,0 +1,57 @@
+# Using PERT to Give Estimates When You're Uncertain
+
+When estimating software projects, there are two scenarios:
+
+**When you're certain**: You can confidently commit to a date. "Yes, I can deliver this by Friday."
+
+**When you're uncertain**: Be honest about it. Don't guess a single date and hope for the best. Use PERT instead.
+
+## What is PERT?
+
+PERT (Program Evaluation and Review Technique) is an estimation method that acknowledges uncertainty by using three estimates instead of one:
+
+- **Best case (Optimistic)**: Everything goes smoothly, no surprises
+- **Normal case (Most Likely)**: Realistic scenario with typical challenges
+- **Worst case (Pessimistic)**: Murphy's Law kicks in, unexpected issues arise
+
+## Example: Estimating a Feature Set
+
+| Feature   | Best  | Normal | Worst  |
+| --------- | ----- | ------ | ------ |
+| Feature 1 | 1     | 3      | 6      |
+| Feature 2 | 2     | 4      | 8      |
+| **Total** | **3** | **7**  | **14** |
+
+Instead of committing to a single number, you communicate a range: **3 to 14 days**, with 7 days being most likely.
+
+## The PERT Formula
+
+PERT calculates a weighted average that accounts for uncertainty:
+
+```
+Expected = (Optimistic + 4 × Most Likely + Pessimistic) / 6
+```
+
+For our example:
+
+- Feature 1: (1 + 4×3 + 6) / 6 = **3.2 days**
+- Feature 2: (2 + 4×4 + 8) / 6 = **4.3 days**
+- **Total Expected: 7.5 days**
+
+The formula weights the most likely estimate more heavily (4×) since that's where reality usually lands.
+
+## Why This Works
+
+1. **Honesty builds trust**: Stakeholders appreciate transparency over false confidence
+2. **Sets realistic expectations**: A range prepares everyone for variability
+3. **Reduces stress**: You're not locked into a single number you might miss
+4. **Encourages discussion**: The range opens conversation about priorities and trade-offs
+
+## When to Use PERT
+
+- New technology or unfamiliar codebase
+- Complex integrations with external systems
+- Features with unclear requirements
+- Projects with dependencies on other teams
+
+When you're uncertain, don't pretend to be certain. Use PERT and communicate the range.

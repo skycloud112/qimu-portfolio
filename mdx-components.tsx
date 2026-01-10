@@ -22,6 +22,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </blockquote>
     ),
+    table: ({ children }) => (
+      <table className='mb-4 w-full border-collapse text-sm'>{children}</table>
+    ),
+    thead: ({ children }) => <thead className='border-b'>{children}</thead>,
+    tbody: ({ children }) => <tbody>{children}</tbody>,
+    tr: ({ children }) => <tr className='border-b'>{children}</tr>,
+    th: ({ children }) => <th className='px-4 py-2 text-left font-semibold'>{children}</th>,
+    td: ({ children }) => <td className='px-4 py-2'>{children}</td>,
     ...components,
   };
 }

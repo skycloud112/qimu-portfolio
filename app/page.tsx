@@ -6,6 +6,9 @@ export default function HomePage() {
       <div className='flex flex-col gap-8'>
         <div className='flex flex-col gap-2'>
           <h2 className='text-xl font-medium'>Blogs</h2>
+          <Link href='/blog/2026-01-09-1-pert-estimation' className='text-primary hover:underline'>
+            2026-01-09 - Using PERT to Give Estimates When You're Uncertain
+          </Link>
           <Link
             href='/blog/2026-01-08-1-saas-architecture-multi-tenant'
             className='text-primary hover:underline'
